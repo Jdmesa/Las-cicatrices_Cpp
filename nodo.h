@@ -12,6 +12,7 @@ using namespace std;
 class Criatura;
 
 class nodo {
+private:
     int fila;
     int columna;
     string tipo;
