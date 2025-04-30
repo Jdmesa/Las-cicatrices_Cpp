@@ -4,34 +4,35 @@
 
 #ifndef NODO_H
 #define NODO_H
+class criatura;
 
 #include <iostream>
 #include <vector>
+
 using namespace std;
 
-class Criatura;
 
 class nodo {
 private:
     int fila;
     int columna;
     string tipo;
-    vector<Criatura*> criaturas;
+    vector<criatura*> criaturas;
 
     public:
     nodo(int fila, int columna, const string& tipo);
-    ~nodo();
 
     int getFila() const;
     int getColumna() const;
     string getTipo() const;
+    int getTotalCriaturas() const;
 
     void setTipo(const string& tipo);
 
-    void agregarCriatura(Criatura* criaturas);
-    void eliminarCriatura(Criatura* criatura);
+    void agregarCriatura(criatura* criaturas);
+    void eliminarCriatura(criatura* criatura);
 
-    const vector<Criatura*>& getCriaturas() const;
+    const vector<criatura*>& getCriaturas() const;
 
 
 };

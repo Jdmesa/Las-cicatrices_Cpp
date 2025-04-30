@@ -19,18 +19,22 @@ string nodo::getTipo() const {
     return tipo;
 }
 
+int nodo::getTotalCriaturas() const {
+    return criaturas.size();
+}
+
 void nodo::setTipo(const string &tipoNuevo) {
     tipo = tipoNuevo;
 }
 
-void nodo::agregarCriatura(Criatura *c) {
+void nodo::agregarCriatura(criatura *c) {
     criaturas.push_back(c);
 }
 
-void nodo::eliminarCriatura(Criatura *c) {
+void nodo::eliminarCriatura(criatura *c) {
     criaturas.erase(remove(criaturas.begin(), criaturas.end(), c), criaturas.end());
 }
 
-const vector<Criatura *> & nodo::getCriaturas() const {
+const vector<criatura *> & nodo::getCriaturas() const {
     return criaturas;
 }
