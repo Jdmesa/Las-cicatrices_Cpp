@@ -16,11 +16,11 @@ mapa::mapa(int filas, int columnas, char bioma) : filas(filas), columnas(columna
 
     vector<string> opciones;
     switch (bioma) {
-        case 'b':
+        case 'b': //Boscoso
             opciones = {"denso", "claro", "oscuro"};
             distribucion = uniform_int_distribution<>(0, opciones.size() - 1);
         break;
-        case 'v':
+        case 'v': //Volcanico
             opciones = {"roca", "seniza", "fumarolas"};
             distribucion = uniform_int_distribution<>(0, opciones.size() - 1);
         break;

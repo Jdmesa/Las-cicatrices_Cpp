@@ -44,6 +44,10 @@ void criaturaPrueba::moverse(mapa& m) {
 }
 
 void criaturaPrueba::evolucion() {
+    //TODO: Implementar que en caso de que la criatura este en cicloEv zombie, no pueda cambiar mas a otra y si se ejecuta que muera directamente.
+    /*TODO:
+     *Crear funcion en criatura para que muera.
+     */
     int numeroAdivinador = 5;
     random_device rd2;
     mt19937 gen2(rd2());
