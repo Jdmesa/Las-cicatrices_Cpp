@@ -3,6 +3,9 @@
 //
 
 #include "ecosistema.h"
+
+#include <limits>
+
 #include "../Criaturas/criaturaPrueba.h"
 ecosistema::ecosistema(int f, int c, char bioma, int ciclos) : m(f,c,bioma), ciclos(ciclos) {
     if (bioma == 'b') {
@@ -20,6 +23,7 @@ ecosistema::ecosistema(int f, int c, char bioma, int ciclos) : m(f,c,bioma), cic
         m.obtenerNodo(2,2).agregarCriatura(adaPoderosa);
 
     }
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
     ciclo();
 }
 
@@ -27,6 +31,9 @@ void ecosistema::ciclo() {
     int filas, columnas;
     filas = m.getFilas();
     columnas = m.getColumnas();
+
+    cout << "Mapa inicial:"<<endl;
+    m.mostrarMapa();
 
     for (int i = 1; i < ciclos+1; i++) {
         cout << "Ciclo #" << i << endl;
@@ -39,8 +46,11 @@ void ecosistema::ciclo() {
         }
         m.evolucionarCriaturas(m);
         m.mostrarMapa();
-        cout << "Presiona ENTER para continuar..." << endl;
-        cin.get();
+        if (i < ciclos) {
+            cout << "Presiona cualquier tecla para continuar al ciclo #" << i+1 << endl;
+            cin.get();
+        }
+
     }
 }
 
