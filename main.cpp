@@ -1,9 +1,9 @@
 #include <windows.h>
 #include <iostream>
-#include "mapa.h"
-#include "criaturaPrueba.h"
-#include "ecosistema.h"
+#include <limits>
+#include "Ecosistema/ecosistema.h"
 
+using namespace std;
 
 int main() {
     srand(time(0)); // Aleatoriedad cada vez que se ejecuta el programa.
@@ -20,8 +20,10 @@ int main() {
     cin>>opcion;
     if (opcion == '1') {
         ecosistema valle(5,5,'b',10);
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
     } else {
         ecosistema valle(5,5,'v',10);
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
     }
 
     return 0;

@@ -39,6 +39,8 @@ void ecosistema::ciclo() {
         }
         m.evolucionarCriaturas(m);
         m.mostrarMapa();
+        cout << "Presiona ENTER para continuar..." << endl;
+        cin.get();
     }
 }
 
