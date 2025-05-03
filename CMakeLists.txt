@@ -7,18 +7,18 @@ add_executable(Las_cicatrices_Cpp main.cpp
         Ecosistema/nodo.cpp
         Ecosistema/mapa.cpp
         Ecosistema/mapa.h
-        criaturaPrueba.cpp
-        criaturaPrueba.h
-        criatura.cpp
-        criatura.h
+        Criaturas/criaturaPrueba.cpp
+        Criaturas/criaturaPrueba.h
+        Atributos/criatura.cpp
+        Atributos/criatura.h
         Ecosistema/ecosistema.cpp
         Ecosistema/ecosistema.h
-        dragon.cpp
-        dragon.h
+        Criaturas/dragon.cpp
+        Criaturas/dragon.h
         Atributos/fantasma.cpp
         Atributos/fantasma.h
-        hada.cpp
-        hada.h
+        Criaturas/hada.cpp
+        Criaturas/hada.h
         Atributos/volador.cpp
         Atributos/volador.h
 )
