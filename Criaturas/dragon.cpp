@@ -27,7 +27,7 @@ void dragon::moverse(mapa &m) {
 
 }
 
-void dragon::evolucion() {
+void dragon::evolucion(mapa &m) {
     //TODO: implementar evolucion.
 }
 

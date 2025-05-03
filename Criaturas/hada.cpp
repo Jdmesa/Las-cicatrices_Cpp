@@ -11,7 +11,7 @@ void hada::moverse(mapa &m) {
     //TODO: Agregar funcionalidad de moverse
 }
 
-void hada::evolucion() {
+void hada::evolucion(mapa &m) {
     //TODO: Agregar funcionalida de evolucion.
 }
 
