@@ -6,7 +6,7 @@
 
 #include <random>
 
-criaturaPrueba::criaturaPrueba(const string &nombre, int& fila, int& columna) : criatura(fila, columna), nombre(nombre){}
+criaturaPrueba::criaturaPrueba(const string &nombre, const int& fila, const int& columna) : criatura("crio"), nombre(nombre), fila(fila), columna(columna), vive(vive) {}
 
 string criaturaPrueba::getNombre() const { return nombre; }
 
@@ -43,7 +43,7 @@ void criaturaPrueba::moverse(mapa& m) {
     setPosicion(nuevaFila, nuevaCol);
 }
 
-void criaturaPrueba::evolucion() {
+void criaturaPrueba::evolucion(mapa &m) {
     //TODO: Implementar que en caso de que la criatura este en cicloEv zombie, no pueda cambiar mas a otra y si se ejecuta que muera directamente.
     /*TODO:
      *Crear funcion en criatura para que muera.
@@ -62,10 +62,20 @@ void criaturaPrueba::evolucion() {
         int indice = distribucionOpciones(gen3);
         string opcion = opciones2[indice];
         string cicloEv = opcion; // Asigna la opción a tu variable cicloEv
+        if (cicloEv == "zombie") { //En caso de que la criatura evolucione a zombie, perecerá
+            morir();
+            m.obtenerNodo(1,2).eliminarCriatura(this);
+        }
 
         cout << nombre << "-> Evolucionó a " << opcion << endl;
     }
 }
+
+void criaturaPrueba::morir() {
+    vive = false;
+    cout << nombre << "Ha perecido" << endl;
+}
+
 
 void criaturaPrueba::setPosicion(int f, int c) {
     fila = f;

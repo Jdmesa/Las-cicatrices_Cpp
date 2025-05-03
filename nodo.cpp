@@ -30,9 +30,9 @@ void nodo::actuarCriaturas(mapa &m) {
     }
 }
 
-void nodo::evolucionarCriaturas() {
+void nodo::evolucionarCriaturas(mapa &m) {
     for (auto criatura : criaturas) {
-        criatura->evolucion();
+        criatura->evolucion(m);
     }
 }
 

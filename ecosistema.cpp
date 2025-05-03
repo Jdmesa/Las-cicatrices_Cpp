@@ -37,7 +37,7 @@ void ecosistema::ciclo() {
                 }
             }
         }
-        m.evolucionarCriaturas();
+        m.evolucionarCriaturas(m);
         m.mostrarMapa();
     }
 }
