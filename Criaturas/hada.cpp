@@ -36,10 +36,6 @@ void hada::moverse(mapa &m) {
 void hada::evolucion(mapa &m) {
     //TODO: Agregar funcionalida de evolucion.
 
-
-
-
-
 }
 
 void hada::setPosicion(int f, int c) {
