@@ -21,4 +21,8 @@ add_executable(Las_cicatrices_Cpp main.cpp
         Criaturas/hada.h
         Atributos/volador.cpp
         Atributos/volador.h
+        Criaturas/enano.cpp
+        Criaturas/enano.h
+        Atributos/regeneracion.cpp
+        Atributos/regeneracion.h
 )
