@@ -6,7 +6,7 @@
 #define CRIATURAPRUEBA_H
 
 #include <iostream>
-#include "criatura.h"
+#include "../Atributos/criatura.h"
 
 using namespace std;
 
@@ -17,7 +17,7 @@ private:
     int columna;
     bool vive;
 public:
-    criaturaPrueba(const string& nombre, const int& fila, const int& columna);
+    criaturaPrueba(const string& nombre, int fila, int columna);
 
     void moverse(mapa &m) override;
     void evolucion(mapa &m) override;

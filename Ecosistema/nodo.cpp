@@ -3,7 +3,7 @@
 //
 
 #include "nodo.h"
-#include "criatura.h"
+#include "../Atributos/criatura.h"
 #include <algorithm>
 
 nodo::nodo(int fila, int columna, const string &tipo) : fila(fila), columna(columna), tipo(tipo) {}

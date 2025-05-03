@@ -4,7 +4,7 @@
 
 #ifndef DRAGON_H
 #define DRAGON_H
-#include "criatura.h"
+#include "../Atributos/criatura.h"
 
 
 class dragon : public criatura {
@@ -14,7 +14,7 @@ private:
     dragon(const string& nombre, int& fila, int& columna);
 
     void moverse(mapa &m) override;
-    void evolucion() override;
+    void evolucion(mapa &m) override;
     void setPosicion(int f, int c);
 
     string getNombre() const override;

@@ -3,10 +3,10 @@
 //
 
 #include "criaturaPrueba.h"
-
+#include "../Atributos/criatura.h"
 #include <random>
 
-criaturaPrueba::criaturaPrueba(const string &nombre, const int& fila, const int& columna) : criatura("crio"), nombre(nombre), fila(fila), columna(columna), vive(vive) {}
+criaturaPrueba::criaturaPrueba(const string &nombre, int fila, int columna) : criatura(fila, columna), nombre(nombre), fila(fila), columna(columna), vive(vive) {}
 
 string criaturaPrueba::getNombre() const { return nombre; }
 

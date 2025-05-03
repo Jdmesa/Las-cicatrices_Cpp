@@ -6,7 +6,7 @@
 #define CRIATURA_H
 
 #include <iostream>
-#include "mapa.h"
+#include "../Ecosistema/mapa.h"
 using namespace std;
 
 class mapa;

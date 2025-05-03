@@ -4,7 +4,7 @@
 
 #include "mapa.h"
 #include "nodo.h"
-#include "criatura.h"
+#include "../Atributos/criatura.h"
 #include <random>
 
 using namespace std;

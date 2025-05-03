@@ -3,7 +3,7 @@
 //
 
 #include "ecosistema.h"
-#include "criaturaPrueba.h"
+#include "../Criaturas/criaturaPrueba.h"
 ecosistema::ecosistema(int f, int c, char bioma, int ciclos) : m(f,c,bioma), ciclos(ciclos) {
     if (bioma == 'b') {
         // Mapa 5x5, 20 ciclos
