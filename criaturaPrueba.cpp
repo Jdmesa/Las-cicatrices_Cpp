@@ -6,7 +6,7 @@
 
 #include <random>
 
-criaturaPrueba::criaturaPrueba(const string &nombre, const int& fila, const int& columna) : criatura("crio"), nombre(nombre), fila(fila), columna(columna){}
+criaturaPrueba::criaturaPrueba(const string &nombre, int& fila, int& columna) : criatura(fila, columna), nombre(nombre){}
 
 string criaturaPrueba::getNombre() const { return nombre; }
 

@@ -13,10 +13,8 @@ using namespace std;
 class criaturaPrueba : public criatura {
 private:
     string nombre;
-    int fila;
-    int columna;
 public:
-    criaturaPrueba(const string& nombre, const int& fila, const int& columna);
+    criaturaPrueba(const string& nombre, int& fila, int& columna);
 
     void moverse(mapa &m) override;
     void evolucion() override;
