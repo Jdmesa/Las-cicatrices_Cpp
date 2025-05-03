@@ -7,19 +7,21 @@
 
 #include "nodo.h"
 #include <vector>
-
+using namespace std;
 class mapa {
 
 private:
     int filas;
     int columnas;
+    char bioma;
     vector<vector<nodo>> matriz;
 
     public:
-    mapa(int filas, int columnas);
+    mapa(int filas, int columnas, char bioma);
 
     nodo& obtenerNodo(int fila, int columna);
-
+    void moverCriaturas();
+    void evolucionarCriaturas();
     void mostrarMapa() const;
     int getFilas() const;
     int getColumnas() const;

@@ -2,30 +2,27 @@
 #include <iostream>
 #include "mapa.h"
 #include "criaturaPrueba.h"
+#include "ecosistema.h"
 
 
 int main() {
+    srand(time(0)); // Aleatoriedad cada vez que se ejecuta el programa.
 
     //solo es para que se vean los caracteres especiales en la consola (como la ñ)
     SetConsoleOutputCP(CP_UTF8);
 
-    // Se crea un mapa de 5x5
-    mapa mapa(5, 5);
-    // Para obtener un nodo y ponerle un tipo.
-    nodo& nodoAgua = mapa.obtenerNodo(4, 4);
-    nodoAgua.setTipo("agua");
-    // No creo que sea necesario explicarlo.
-    criaturaPrueba* criatura = new criaturaPrueba("El dragón demoledor", 4, 4);
-    nodoAgua.agregarCriatura(criatura);
+    char opcion;
+    cout << "Selecciona el bioma: " << endl;
+    cout << "1. Boscoso - Terrenos Densos, Claros y Oscuros" << endl;
+    cout << "2. Volcanico - Terrenos Rocosos, Senizas y Fumarolas" << endl;
+    cout << "Ingresa la opcion: ";
 
-    // Simulamos 5 ciclos de vida en el ecosistema (PRUEBA)
-    for (int ciclo = 0; ciclo < 5; ++ciclo) {
-        cout << "\n--- Ciclo " << ciclo + 1 << " ---\n";
-        criatura->actuar(mapa);
-        mapa.mostrarMapa();
+    cin>>opcion;
+    if (opcion == '1') {
+        ecosistema valle(5,5,'b',10);
+    } else {
+        ecosistema valle(5,5,'v',10);
     }
 
-    // Limpiamos la memoria (obligatorio)
-    delete criatura;
     return 0;
 }

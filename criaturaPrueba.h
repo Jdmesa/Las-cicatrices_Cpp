@@ -18,7 +18,8 @@ private:
 public:
     criaturaPrueba(const string& nombre, const int& fila, const int& columna);
 
-    void actuar(mapa &m) override;
+    void moverse(mapa &m) override;
+    void evolucion() override;
     void setPosicion(int f, int c);
 
     string getNombre() const override;

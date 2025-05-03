@@ -12,11 +12,15 @@ using namespace std;
 class mapa;
 
 class criatura {
+    protected:
+    string cicloEv; // Existiran 4: crio, adulto, evolutivo, zombie, muerto
 public:
+    criatura(string cicloEv);
     // par de funciones virtuales para que cada criatura modifique esto a su gusto.
     virtual string getNombre() const = 0;
     virtual ~criatura() = default;
-    virtual void actuar(mapa &m) = 0;
+    virtual void moverse(mapa &m) = 0;
+    virtual void evolucion() = 0;
 };
 
 

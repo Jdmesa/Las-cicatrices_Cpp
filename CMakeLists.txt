@@ -10,4 +10,7 @@ add_executable(Las_cicatrices_Cpp main.cpp
         criaturaPrueba.cpp
         criaturaPrueba.h
         criatura.cpp
-        criatura.h)
+        criatura.h
+        ecosistema.cpp
+        ecosistema.h
+)

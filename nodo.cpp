@@ -3,6 +3,7 @@
 //
 
 #include "nodo.h"
+#include "criatura.h"
 #include <algorithm>
 
 nodo::nodo(int fila, int columna, const string &tipo) : fila(fila), columna(columna), tipo(tipo) {}
@@ -21,6 +22,18 @@ string nodo::getTipo() const {
 
 int nodo::getTotalCriaturas() const {
     return criaturas.size();
+}
+
+void nodo::actuarCriaturas(mapa &m) {
+    for (auto criatura : criaturas) {
+        criatura->moverse(m);
+    }
+}
+
+void nodo::evolucionarCriaturas() {
+    for (auto criatura : criaturas) {
+        criatura->evolucion();
+    }
 }
 
 void nodo::setTipo(const string &tipoNuevo) {

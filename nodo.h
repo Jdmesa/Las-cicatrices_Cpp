@@ -4,13 +4,14 @@
 
 #ifndef NODO_H
 #define NODO_H
+
 class criatura;
+class mapa;
 
 #include <iostream>
 #include <vector>
 
 using namespace std;
-
 
 class nodo {
 private:
@@ -27,6 +28,8 @@ private:
     string getTipo() const;
     int getTotalCriaturas() const;
 
+    void actuarCriaturas(mapa &m);
+    void evolucionarCriaturas();
     void setTipo(const string& tipo);
 
     void agregarCriatura(criatura* criaturas);
