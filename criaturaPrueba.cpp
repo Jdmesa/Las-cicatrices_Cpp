@@ -64,7 +64,7 @@ void criaturaPrueba::evolucion(mapa &m) {
         string cicloEv = opcion; // Asigna la opción a tu variable cicloEv
         if (cicloEv == "zombie") { //En caso de que la criatura evolucione a zombie, perecerá
             morir();
-            m.obtenerNodo(1,2).eliminarCriatura(this);
+            m.obtenerNodo().eliminarCriatura(this);
         }
 
         cout << nombre << "-> Evolucionó a " << opcion << endl;
