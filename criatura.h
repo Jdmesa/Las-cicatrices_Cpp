@@ -14,8 +14,10 @@ class mapa;
 class criatura {
     protected:
     string cicloEv; // Existiran 4: crio, adulto, evolutivo, zombie, muerto
+    int fila;
+    int columna;
 public:
-    criatura(string cicloEv);
+    criatura(int& fila, int& columna);
     // par de funciones virtuales para que cada criatura modifique esto a su gusto.
     //virtual void morir() const = 0;
     virtual string getNombre() const = 0;

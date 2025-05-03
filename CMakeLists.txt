@@ -13,4 +13,6 @@ add_executable(Las_cicatrices_Cpp main.cpp
         criatura.h
         ecosistema.cpp
         ecosistema.h
+        dragon.cpp
+        dragon.h
 )

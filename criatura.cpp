@@ -4,4 +4,6 @@
 
 #include "criatura.h"
 // de momento no se necesita nada.
-criatura::criatura(string cicloEv) : cicloEv(cicloEv) {}
+criatura::criatura(int& fila, int& columna) : cicloEv(fila, columna) {
+    cicloEv = "crio";
+}
