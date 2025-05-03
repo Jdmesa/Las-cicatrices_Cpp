@@ -29,7 +29,7 @@ private:
     int getTotalCriaturas() const;
 
     void actuarCriaturas(mapa &m);
-    void evolucionarCriaturas();
+    void evolucionarCriaturas(mapa &m);
     void setTipo(const string& tipo);
 
     void agregarCriatura(criatura* criaturas);

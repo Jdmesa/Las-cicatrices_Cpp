@@ -17,7 +17,7 @@ private:
     int columna;
     bool vive;
 public:
-    criaturaPrueba(const string& nombre, const int& fila, const int& columna, bool& vive);
+    criaturaPrueba(const string& nombre, const int& fila, const int& columna);
 
     void moverse(mapa &m) override;
     void evolucion(mapa &m) override;
@@ -25,7 +25,7 @@ public:
     void morir() override;
 
     string getNombre() const override;
-    bool EstaVivo()  {return vive = true;}
+    bool getvida()  {return vive = true;}
 
     int getFila() const;
     int getColumna() const;

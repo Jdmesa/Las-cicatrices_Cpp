@@ -21,7 +21,7 @@ private:
 
     nodo& obtenerNodo(int fila, int columna);
     void moverCriaturas();
-    void evolucionarCriaturas();
+    void evolucionarCriaturas(mapa &m);
     void mostrarMapa() const;
     int getFilas() const;
     int getColumnas() const;

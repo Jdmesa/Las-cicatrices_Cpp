@@ -50,10 +50,10 @@ nodo& mapa::obtenerNodo(int fila, int columna) {
     return matriz[fila][columna];
 }
 
-void mapa::evolucionarCriaturas() {
+void mapa::evolucionarCriaturas(mapa &m) {
    for (auto& fila : matriz) {
        for (auto& nodo : fila) {
-           nodo.evolucionarCriaturas();
+           nodo.evolucionarCriaturas(m);
        }
    }
 }
