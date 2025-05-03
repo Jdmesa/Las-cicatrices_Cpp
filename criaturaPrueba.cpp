@@ -40,8 +40,7 @@ void criaturaPrueba::moverse(mapa& m) {
     cout << nombre << "-> Moved, before : " << "Fila: " << fila+1 << " Columna: " << columna+1;
     cout << "  After: " << "Fila: " << nuevaFila+1 << " Columna: " << nuevaCol+1 << " | Bioma actual: " << m.obtenerNodo(nuevaFila,nuevaCol).getTipo() << endl;
     // Actualizar posición interna de la clase.
-    fila = nuevaFila;
-    columna = nuevaCol;
+    setPosicion(nuevaFila, nuevaCol);
 }
 
 void criaturaPrueba::evolucion() {
