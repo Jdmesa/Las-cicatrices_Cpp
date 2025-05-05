@@ -4,7 +4,7 @@
 
 #include "dragon.h"
 
-dragon::dragon(const string& nombre, int& fila, int& columna): nombre(nombre), criatura(fila, columna) {}
+dragon::dragon(const string& nombre, int& fila, int& columna): nombre(nombre), criatura(fila, columna, 5) {}
 dragon::~dragon() {
     cout << "Dragon ha sido destruido" << endl;
 }

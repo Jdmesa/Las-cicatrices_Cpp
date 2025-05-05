@@ -8,7 +8,7 @@
 
 #include "dragon.h"
 
-criaturaPrueba::criaturaPrueba(const string &nombre, int fila, int columna) : criatura(fila, columna), nombre(nombre), fila(fila), columna(columna), vive(vive) {}
+criaturaPrueba::criaturaPrueba(const string &nombre, int fila, int columna) : criatura(fila, columna, 5), nombre(nombre), fila(fila), columna(columna), vive(vive) {}
 
 string criaturaPrueba::getNombre() const { return nombre; }
 
