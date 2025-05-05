@@ -4,7 +4,7 @@
 
 #include "dragon.h"
 
-dragon::dragon(const string& nombre, int& fila, int& columna): nombre(nombre), criatura(fila, columna) {}
+dragon::dragon(const string& nombre, int& fila, int& columna): nombre(nombre), criatura(fila, columna, 5) {}
 
 void dragon::moverse(mapa &m) {
     int nuevaFila = fila + (rand() % 4 - 1) ;

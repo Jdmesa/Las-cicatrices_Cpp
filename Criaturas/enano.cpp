@@ -4,7 +4,7 @@
 
 #include "enano.h"
 
-enano::enano(string nombre, int fila, int columna) : nombre(nombre), criatura(fila, columna) {}
+enano::enano(string nombre, int fila, int columna) : nombre(nombre), criatura(fila, columna, 2) {}
 
 void enano::moverse(mapa &m) {
 // TODO: Implementar funcion de moverse

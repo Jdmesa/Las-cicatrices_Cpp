@@ -16,8 +16,9 @@ class criatura {
     string cicloEv; // Existiran 4: crio, adulto, evolutivo, zombie, muerto
     int fila;
     int columna;
+    int vida;
 public:
-    criatura(int& fila, int& columna);
+    criatura(int& fila, int& columna, int vida);
     // par de funciones virtuales para que cada criatura modifique esto a su gusto.
     //virtual void morir() const = 0;
     virtual string getNombre() const = 0;

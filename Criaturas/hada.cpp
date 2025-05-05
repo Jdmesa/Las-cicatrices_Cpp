@@ -5,7 +5,7 @@
 #include <ctime>
 #include "hada.h"
 
-hada::hada(const string &nombre, int fila, int columna) : nombre(nombre), criatura(fila, columna) {
+hada::hada(const string &nombre, int fila, int columna) : nombre(nombre), criatura(fila, columna, 3) {
 }
 
 void hada::moverse(mapa &m) {
