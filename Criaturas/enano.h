@@ -17,7 +17,7 @@ public:
 
     void moverse(mapa &m) override;
     void evolucion(mapa &m) override;
-    void morir() override;
+    void morir(mapa &m) override;
     string getNombre() const override;
 
     void setPosicion(int f, int c);

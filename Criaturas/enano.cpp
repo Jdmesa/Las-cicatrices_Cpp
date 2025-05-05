@@ -24,6 +24,6 @@ void enano::setPosicion(int f, int c) {
     columna = c;
 }
 
-void enano::morir() {
+void enano::morir(mapa &m) {
     //TODO: Implementar morir criatura
 }

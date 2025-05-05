@@ -10,17 +10,21 @@
 class dragon : public criatura {
 private:
     string nombre;
+    bool vive;
     public:
     dragon(const string& nombre, int& fila, int& columna);
+    ~dragon();
 
     void moverse(mapa &m) override;
     void evolucion(mapa &m) override;
     void setPosicion(int f, int c);
+    void morir(mapa &m) override;
 
     string getNombre() const override;
 
     int getFila() const;
     int getColumna() const;
+    bool getVive();
 };
 
 
