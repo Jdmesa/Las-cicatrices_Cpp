@@ -10,10 +10,6 @@ hada::hada(const string &nombre, int fila, int columna) : nombre(nombre), criatu
 
 void hada::moverse(mapa &m) {
     //TODO: Agregar funcionalidad de moverse
-}
-
-void hada::evolucion(mapa &m) {
-    //TODO: Agregar funcionalida de evolucion.
     int nuevaFila = fila + (rand() % 3 - 1);
     int nuevaCol = columna + (rand() % 3 - 1);
 
@@ -35,9 +31,10 @@ void hada::evolucion(mapa &m) {
 
     // Actualizar la posición interna
     setPosicion(nuevaFila, nuevaCol);
+}
 
-
-
+void hada::evolucion(mapa &m) {
+    //TODO: Agregar funcionalida de evolucion.
 
 }
 

@@ -4,7 +4,10 @@
 
 #include "dragon.h"
 
-dragon::dragon(const string& nombre, int& fila, int& columna): nombre(nombre), criatura(fila, columna, 5) {}
+dragon::dragon(const string& nombre, int& fila, int& columna): nombre(nombre), criatura(fila, columna) {}
+dragon::~dragon() {
+    cout << "Dragon ha sido destruido" << endl;
+}
 
 void dragon::moverse(mapa &m) {
     int nuevaFila = fila + (rand() % 4 - 1) ;
@@ -31,6 +34,14 @@ void dragon::evolucion(mapa &m) {
     //TODO: implementar evolucion.
 }
 
+void dragon::morir(mapa &m){
+    vive = false;
+    m.obtenerNodo(fila, columna).eliminarCriatura(this);
+    cout << nombre << " Ha perecido" << endl;
+    dragon::~dragon();
+}
+
+
 void dragon::setPosicion(int f, int c) {
     fila = f;
     columna = c;
@@ -46,4 +57,8 @@ int dragon::getFila() const {
 
 int dragon::getColumna() const {
     return columna;
+}
+
+bool dragon::getVive() {
+    return vive;
 }
