@@ -8,7 +8,7 @@ using namespace std;
 int main() {
     srand(time(0)); // Aleatoriedad cada vez que se ejecuta el programa.
 
-    //solo es para que se vean los caracteres especiales en la consola (como la ñ)
+    // Solo es para que se vean los caracteres especiales en la consola (como la ñ)
     SetConsoleOutputCP(CP_UTF8);
 
     char opcion;
@@ -16,27 +16,33 @@ int main() {
     cout << "1. Boscoso - Terrenos Densos, Claros y Oscuros" << endl;
     cout << "2. Volcanico - Terrenos Rocosos, Senizas y Fumarolas" << endl;
     cout << "Ingresa la opcion: ";
+    cin >> opcion;
 
-    cin>>opcion;
     int cantidadCiclos, numeroAleatorio, tamanioMapa;
     char bioma;
-    cout << "Ingresa la cantidad de ciclos";
+
     if (opcion == '1') {
-        // Genera un número aleatorio entre 0 y 10 (15 - 5)
-        numeroAleatorio = rand() % 11;
-        // Desplaza el rango para que esté entre 5 y 15
-        tamanioMapa = numeroAleatorio + 5;
+        numeroAleatorio = rand() % 11; // 0 a 10
+        tamanioMapa = numeroAleatorio + 5; // 5 a 15
         bioma = 'b';
     } else if (opcion == '2') {
-        numeroAleatorio = rand() % 11;
-        tamanioMapa = numeroAleatorio + 5;
+        numeroAleatorio = rand() % 11; // 0 a 10
+        tamanioMapa = numeroAleatorio + 5; // 5 a 15
         bioma = 'v';
+    } else {
+        cout << "Opción no válida." << endl;
+        return 1;
     }
 
-    ecosistema valle(tamanioMapa,tamanioMapa,bioma,10);
-    /*
-     *TODO:
-     * - Realizar seleccion de ciclos aleatorio
-    */
+
+    numeroAleatorio = rand() % 21; // 0 a 20
+    cantidadCiclos = numeroAleatorio + 10; // 10 a 30
+
+    cout << "Tamaño del mapa generado: " << tamanioMapa << "x" << tamanioMapa << endl;
+    cout << "Cantidad de ciclos generada: " << cantidadCiclos << endl;
+
+    ecosistema valle(tamanioMapa, tamanioMapa, bioma, cantidadCiclos);
+
     return 0;
 }
+
