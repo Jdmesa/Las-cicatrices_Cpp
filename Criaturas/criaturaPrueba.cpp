@@ -11,7 +11,7 @@ criaturaPrueba::criaturaPrueba(const string& nombre, int fila, int columna, mapa
 }
 
 criaturaPrueba::~criaturaPrueba() {
-    cout << "Destruido:" << nombre << endl;
+    cout << "Destruido: " << nombre << endl;
 }
 
 string criaturaPrueba::getNombre() const {

@@ -65,9 +65,6 @@ void mapa::mostrarMapa() const {
     for (const auto& fila: matriz) {
         for (const auto& nodo : fila) {
             char simbolo = toupper(nodo.getTipo().front());
-            if (!nodo.getCriaturas().empty()) {
-                simbolo = '*';
-            }
             cout << "[" << simbolo << "]";
         }
         cout << "\n";

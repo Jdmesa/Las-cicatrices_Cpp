@@ -18,13 +18,25 @@ int main() {
     cout << "Ingresa la opcion: ";
 
     cin>>opcion;
+    int cantidadCiclos, numeroAleatorio, tamanioMapa;
+    char bioma;
+    cout << "Ingresa la cantidad de ciclos";
     if (opcion == '1') {
-        ecosistema valle(5,5,'b',10);
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');
-    } else {
-        ecosistema valle(5,5,'v',10);
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        // Genera un número aleatorio entre 0 y 10 (15 - 5)
+        numeroAleatorio = rand() % 11;
+        // Desplaza el rango para que esté entre 5 y 15
+        tamanioMapa = numeroAleatorio + 5;
+        bioma = 'b';
+    } else if (opcion == '2') {
+        numeroAleatorio = rand() % 11;
+        tamanioMapa = numeroAleatorio + 5;
+        bioma = 'v';
     }
 
+    ecosistema valle(tamanioMapa,tamanioMapa,bioma,10);
+    /*
+     *TODO:
+     * - Realizar seleccion de ciclos aleatorio
+    */
     return 0;
 }

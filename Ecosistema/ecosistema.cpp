@@ -37,11 +37,12 @@ vector<criatura*> crearMultiplesCriaturasPrueba(int cantidad, mapa& m) {
 }
 
 ecosistema::ecosistema(int f, int c, char bioma, int ciclos) : m(f,c,bioma), ciclos(ciclos) {
+    random_device rd;
+    mt19937 gen(rd());
+    uniform_int_distribution<> distribution(10,50);
+    vector<criatura*> mis_criaturas = crearMultiplesCriaturasPrueba(distribution(gen), m);
 
-    int numero_criaturas = 10;
-    vector<criatura*> mis_criaturas = crearMultiplesCriaturasPrueba(numero_criaturas, m);
-
-    std::cout << "Se crearon " << mis_criaturas.size() << " criaturas de prueba:" << std::endl;
+    cout << "Criaturas iniciales: " << mis_criaturas.size() << endl;
 
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
     ciclo();
