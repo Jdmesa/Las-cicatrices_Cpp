@@ -25,4 +25,6 @@ add_executable(Las_cicatrices_Cpp main.cpp
         Criaturas/enano.h
         Atributos/regeneracion.cpp
         Atributos/regeneracion.h
+        Criaturas/gigante.cpp
+        Criaturas/gigante.h
 )
