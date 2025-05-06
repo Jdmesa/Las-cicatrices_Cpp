@@ -4,12 +4,14 @@
 #include <cstdlib>
 #include <ctime>
 #include "hada.h"
+#include <random>
+#include <algorithm> // Para min y max
 
 hada::hada(const string &nombre, int fila, int columna) : nombre(nombre), criatura(fila, columna, 3) {
 }
 
 void hada::moverse(mapa &m) {
-    //TODO: Agregar funcionalidad de moverse
+
     int nuevaFila = fila + (rand() % 3 - 1);
     int nuevaCol = columna + (rand() % 3 - 1);
 
@@ -33,10 +35,30 @@ void hada::moverse(mapa &m) {
     setPosicion(nuevaFila, nuevaCol);
 }
 
-void hada::evolucion(mapa &m) {
-    //TODO: Agregar funcionalida de evolucion.
+void hada::evolucion(mapa &m){
+    int numeroAdivinador = 5;
+    random_device rd2;
+    mt19937 gen2(rd2());
+    uniform_int_distribution<> distribucionRango(0, 6); // Rango de 0 a 6
 
+    int numeroEnRangoRandom = distribucionRango(gen2);
+    if (numeroEnRangoRandom == numeroAdivinador) {
+        if (cicloEv == "zombie") {
+            morir(m);
+        } else {
+            random_device rd3;
+            mt19937 gen3(rd3());
+            uniform_int_distribution<> distribucionOpciones(0, 2);
+            vector<string> opciones2 = { "adulto", "evolutivo", "zombie" };
+            int indice = distribucionOpciones(gen3);
+            string opcion = opciones2[indice];
+            setCiclo(opcion);
+
+            cout << "El Hada " << nombre << " evolucionó a " << opcion << endl;
+        }
+    }
 }
+
 
 void hada::setPosicion(int f, int c) {
     fila = f;
