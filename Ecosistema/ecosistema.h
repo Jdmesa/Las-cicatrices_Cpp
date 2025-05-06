@@ -13,7 +13,7 @@ private:
   public:
   ecosistema(int f, int c, char b, int ciclos);
   int getCiclos() const;
-  void ciclo();
+  void ciclo(int f, int c);
 
 };
 

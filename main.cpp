@@ -1,6 +1,5 @@
 #include <windows.h>
 #include <iostream>
-#include <limits>
 #include "Ecosistema/ecosistema.h"
 
 using namespace std;

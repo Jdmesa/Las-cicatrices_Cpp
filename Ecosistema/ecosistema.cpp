@@ -8,30 +8,62 @@
 #include <random>
 
 #include "../Criaturas/criaturaPrueba.h"
+#include "../Criaturas/dragon.h"
+#include "../Criaturas/enano.h"
+#include "../Criaturas/hada.h"
 
-string generarNombreAleatorioCriatura() {
-    static const char* prefijos[] = {"Dragón", "Hada", "Trasgo", "Duende", "Espectro"}; // Primer nombre
-    static const char* sufijos[] = {"de Fuego", "Veloz", "Oscuro", "Radiante", "Maligno"}; // Segundo nombre
-
+string generarNombreAleatorioCriatura(string tipo) {
+    string prefijo; // Primer nombre
+    const char* sufijos[] = {"de Fuego", "Veloz", "Oscuro", "Radiante", "Maligno"}; // Segundo nombre
+    if (tipo == "Dragon") {
+        prefijo = "Dragon";
+    } else if (tipo == "Hada") {
+        prefijo = "Hada";
+    } else if (tipo == "Enano") {
+        prefijo = "Enano";
+    }
     random_device rd;
     mt19937 gen(rd());
-    uniform_int_distribution<> distribucion_prefijo(0, sizeof(prefijos) / sizeof(prefijos[0]) - 1); // Seleccion aleatoria
     uniform_int_distribution<> distribucion_sufijo(0, sizeof(sufijos) / sizeof(sufijos[0]) - 1);
+    // Para seleccionar aleatoriamente el sufijo de la criatura
 
-    return string(prefijos[distribucion_prefijo(gen)]) + " " + sufijos[distribucion_sufijo(gen)];
+    return string(prefijo + " " + sufijos[distribucion_sufijo(gen)]);
+    // Retorna el prefijo + el sufijo
 }
-vector<criatura*> crearMultiplesCriaturasPrueba(int cantidad, mapa& m) {
+vector<criatura*> generacionCriaturas(int cantidad, mapa& m, int f, int c) {
     vector<criatura*> criaturas;
     random_device rd;
     mt19937 gen(rd());
-    uniform_int_distribution<> distribucion_fila(0, 4);   // Rangos aleatorios para fila
-    uniform_int_distribution<> distribucion_columna(0, 4); // Rangos aleatorios para columna
+
 
     for (int i = 0; i < cantidad; ++i) {
-        string nombre_aleatorio = generarNombreAleatorioCriatura();
-        int fila_aleatoria = distribucion_fila(gen);
+        uniform_int_distribution<> distribucion_fila(0, f - 1); // Filas en el rango de 0 a fila - 1
+        uniform_int_distribution<> distribucion_columna(0, c - 1); // Columnas en el rango de 0 a columna - 1
+        uniform_int_distribution<> tipo_distribucion(0, 2);   // 3 tipos: 0 = dragón, 1 = hada, 2 = enano
+
+        int fila_aleatoria = distribucion_fila(gen); // Seleccion de filas, columnas y el tipo de criatura a generar.
         int columna_aleatoria = distribucion_columna(gen);
-        criaturas.push_back(new criaturaPrueba(nombre_aleatorio, fila_aleatoria, columna_aleatoria, m));
+        int tipo = tipo_distribucion(gen);
+
+        string nombre_aleatorio;
+
+        criatura* nueva_criatura = nullptr;
+        switch (tipo) {
+            case 0:
+                nombre_aleatorio = generarNombreAleatorioCriatura("Dragon");
+                nueva_criatura = new dragon(nombre_aleatorio, fila_aleatoria, columna_aleatoria);
+            break;
+            case 1:
+                nombre_aleatorio = generarNombreAleatorioCriatura("Hada");
+                nueva_criatura = new hada(nombre_aleatorio, fila_aleatoria, columna_aleatoria);
+            break;
+            case 2:
+                nombre_aleatorio = generarNombreAleatorioCriatura("Enano");
+                nueva_criatura = new enano(nombre_aleatorio, fila_aleatoria, columna_aleatoria);
+            break;
+        }
+        cout << nueva_criatura->getNombre() << endl;
+        criaturas.push_back(nueva_criatura);
     }
     return criaturas;
 }
@@ -39,26 +71,25 @@ vector<criatura*> crearMultiplesCriaturasPrueba(int cantidad, mapa& m) {
 ecosistema::ecosistema(int f, int c, char bioma, int ciclos) : m(f,c,bioma), ciclos(ciclos) {
     random_device rd;
     mt19937 gen(rd());
-    uniform_int_distribution<> distribution(10,50);
-    vector<criatura*> mis_criaturas = crearMultiplesCriaturasPrueba(distribution(gen), m);
+    uniform_int_distribution<> distribution(10,50); // Minimo 10 criaturas, maximo 50.
+    vector<criatura*> mis_criaturas = generacionCriaturas(distribution(gen), m, f, c);
 
     cout << "Criaturas iniciales: " << mis_criaturas.size() << endl;
 
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
-    ciclo();
+    ciclo(f,c);
 
     for (auto& criatura : mis_criaturas) {
         delete criatura;
     }
     mis_criaturas.clear();
 
-
 }
 
-void ecosistema::ciclo() {
+void ecosistema::ciclo(int f, int c) {
     int filas, columnas;
-    filas = m.getFilas();
-    columnas = m.getColumnas();
+    filas = f;
+    columnas = c;
 
     for (int i = 1; i < ciclos+1; i++) {
         cout << "Ciclo #" << i << endl;

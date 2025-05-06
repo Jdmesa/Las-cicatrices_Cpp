@@ -8,6 +8,13 @@
 hada::hada(const string &nombre, int fila, int columna) : nombre(nombre), criatura(fila, columna, 3) {
 }
 
+void hada::morir(mapa &m) {
+    cout << nombre << " ha perecido." << endl;
+    m.obtenerNodo(fila, columna).eliminarCriatura(this);
+    setVida(0);
+    delete this;
+}
+
 void hada::moverse(mapa &m) {
     //TODO: Agregar funcionalidad de moverse
     int nuevaFila = fila + (rand() % 3 - 1);
