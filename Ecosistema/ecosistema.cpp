@@ -21,6 +21,8 @@ string generarNombreAleatorioCriatura(string tipo) {
         prefijo = "Hada";
     } else if (tipo == "Enano") {
         prefijo = "Enano";
+    }else if (tipo == "Gigante") {
+        prefijo = "Gigante";
     }
     random_device rd;
     mt19937 gen(rd());
