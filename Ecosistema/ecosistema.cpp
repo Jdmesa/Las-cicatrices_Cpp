@@ -5,35 +5,59 @@
 #include "ecosistema.h"
 
 #include <limits>
+#include <random>
 
 #include "../Criaturas/criaturaPrueba.h"
-ecosistema::ecosistema(int f, int c, char bioma, int ciclos) : m(f,c,bioma), ciclos(ciclos) {
-    if (bioma == 'b') {
-        // Mapa 5x5, 20 ciclos
-        criatura* dragon2 = new criaturaPrueba("Dragon demoledor", 1, 2);
-        criatura* ada = new criaturaPrueba("Hada Maestra", 2,2);
-        m.obtenerNodo(1,2).agregarCriatura(dragon2);
-        m.obtenerNodo(2,2).agregarCriatura(ada);
 
-    } else if (bioma == 'v') {
+string generarNombreAleatorioCriatura() {
+    static const char* prefijos[] = {"Dragón", "Hada", "Trasgo", "Duende", "Espectro"}; // Primer nombre
+    static const char* sufijos[] = {"de Fuego", "Veloz", "Oscuro", "Radiante", "Maligno"}; // Segundo nombre
 
-        criatura* dragonDeFuego = new criaturaPrueba("Dragon demoledor", 1, 2);
-        criatura* adaPoderosa = new criaturaPrueba("Hada Maestra", 2,2);
-        m.obtenerNodo(1,2).agregarCriatura(dragonDeFuego);
-        m.obtenerNodo(2,2).agregarCriatura(adaPoderosa);
+    random_device rd;
+    mt19937 gen(rd());
+    uniform_int_distribution<> distribucion_prefijo(0, sizeof(prefijos) / sizeof(prefijos[0]) - 1); // Seleccion aleatoria
+    uniform_int_distribution<> distribucion_sufijo(0, sizeof(sufijos) / sizeof(sufijos[0]) - 1);
 
+    return string(prefijos[distribucion_prefijo(gen)]) + " " + sufijos[distribucion_sufijo(gen)];
+}
+vector<criatura*> crearMultiplesCriaturasPrueba(int cantidad, mapa& m) {
+    vector<criatura*> criaturas;
+    random_device rd;
+    mt19937 gen(rd());
+    uniform_int_distribution<> distribucion_fila(0, 4);   // Rangos aleatorios para fila
+    uniform_int_distribution<> distribucion_columna(0, 4); // Rangos aleatorios para columna
+
+    for (int i = 0; i < cantidad; ++i) {
+        string nombre_aleatorio = generarNombreAleatorioCriatura();
+        int fila_aleatoria = distribucion_fila(gen);
+        int columna_aleatoria = distribucion_columna(gen);
+        criaturas.push_back(new criaturaPrueba(nombre_aleatorio, fila_aleatoria, columna_aleatoria, m));
     }
+    return criaturas;
+}
+
+ecosistema::ecosistema(int f, int c, char bioma, int ciclos) : m(f,c,bioma), ciclos(ciclos) {
+
+    int numero_criaturas = 10;
+    vector<criatura*> mis_criaturas = crearMultiplesCriaturasPrueba(numero_criaturas, m);
+
+    std::cout << "Se crearon " << mis_criaturas.size() << " criaturas de prueba:" << std::endl;
+
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
     ciclo();
+
+    for (auto& criatura : mis_criaturas) {
+        delete criatura;
+    }
+    mis_criaturas.clear();
+
+
 }
 
 void ecosistema::ciclo() {
     int filas, columnas;
     filas = m.getFilas();
     columnas = m.getColumnas();
-
-    cout << "Mapa inicial:"<<endl;
-    m.mostrarMapa();
 
     for (int i = 1; i < ciclos+1; i++) {
         cout << "Ciclo #" << i << endl;
@@ -47,7 +71,7 @@ void ecosistema::ciclo() {
         m.evolucionarCriaturas(m);
         m.mostrarMapa();
         if (i < ciclos) {
-            cout << "Presiona cualquier tecla para continuar al ciclo #" << i+1 << endl;
+            cout << "Presiona [ENTER] para continuar al ciclo #" << i+1 << endl;
             cin.get();
         }
 

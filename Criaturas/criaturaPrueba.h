@@ -13,20 +13,16 @@ using namespace std;
 class criaturaPrueba : public criatura {
 private:
     string nombre;
-    int fila;
-    int columna;
-    bool vive;
 public:
-    criaturaPrueba(const string& nombre, int fila, int columna);
-
+    criaturaPrueba(const string& nombre, int fila, int columna, mapa& m);
+    ~criaturaPrueba() override;
     void moverse(mapa &m) override;
     void evolucion(mapa &m) override;
-    void setPosicion(int f, int c);
     void morir(mapa &m) override;
 
     string getNombre() const override;
-    bool getvida()  {return vive = true;}
 
+    bool getvida();
     int getFila() const;
     int getColumna() const;
 };

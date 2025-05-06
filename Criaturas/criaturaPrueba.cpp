@@ -6,11 +6,17 @@
 #include "../Atributos/criatura.h"
 #include <random>
 
-#include "dragon.h"
+criaturaPrueba::criaturaPrueba(const string& nombre, int fila, int columna, mapa& m) : criatura(fila, columna, 5), nombre(nombre) {
+    m.obtenerNodo(fila, columna).agregarCriatura(this);
+}
 
-criaturaPrueba::criaturaPrueba(const string &nombre, int fila, int columna) : criatura(fila, columna, 5), nombre(nombre), fila(fila), columna(columna), vive(vive) {}
+criaturaPrueba::~criaturaPrueba() {
+    cout << "Destruido:" << nombre << endl;
+}
 
-string criaturaPrueba::getNombre() const { return nombre; }
+string criaturaPrueba::getNombre() const {
+    return nombre;
+}
 
 int criaturaPrueba::getFila() const {
     return fila;
@@ -39,8 +45,7 @@ void criaturaPrueba::moverse(mapa& m) {
     // 2) Las columnas son horizontales, van hacia la derecha.
     // 3) En el programa todas las filas y columnas inician en 0, pero visualmente se le muestra al usuario desde 1.
 
-    cout << nombre << "-> Moved, before : " << "Fila: " << fila+1 << " Columna: " << columna+1;
-    cout << "  After: " << "Fila: " << nuevaFila+1 << " Columna: " << nuevaCol+1 << " | Bioma actual: " << m.obtenerNodo(nuevaFila,nuevaCol).getTipo() << endl;
+    cout << nombre << " se movio a " << "Fila: " << nuevaFila+1 << " Columna: " << nuevaCol+1 << " | Bioma actual: " << m.obtenerNodo(nuevaFila,nuevaCol).getTipo() << endl;
     // Actualizar posición interna de la clase.
     setPosicion(nuevaFila, nuevaCol);
 }
@@ -55,29 +60,24 @@ void criaturaPrueba::evolucion(mapa &m) {
     if (numeroEnRangoRandom == numeroAdivinador) {
         if (cicloEv == "zombie") { //En caso de que la criatura evolucione a zombie, perecerá
             morir(m);
-
-        }else {
+        } else {
             random_device rd3;
             mt19937 gen3(rd3());
             uniform_int_distribution<> distribucionOpciones(0, 2);
             vector<string> opciones2 = { "adulto", "evolutivo", "zombie"};
             int indice = distribucionOpciones(gen3);
             string opcion = opciones2[indice];
-            string cicloEv = opcion; // Asigna la opción a tu variable cicloEv
+            setCiclo(opcion); // Asigna la opción a tu variable cicloEv
 
-            cout << nombre << "-> Evolucionó a " << opcion << endl;
+            cout << nombre << " evolucionó a " << opcion << endl;
         }
     }
 }
 
 void criaturaPrueba::morir(mapa &m) {
-    vive = false;
+    cout << nombre << " ha perecido." << endl;
     m.obtenerNodo(fila, columna).eliminarCriatura(this);
-    cout << nombre << " Ha perecido" << endl;
+    setVida(0);
+    delete this;
 }
 
-
-void criaturaPrueba::setPosicion(int f, int c) {
-    fila = f;
-    columna = c;
-}

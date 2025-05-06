@@ -26,6 +26,9 @@ public:
     virtual void moverse(mapa &m) = 0;
     virtual void evolucion(mapa &m) = 0;
     virtual void morir(mapa &m) = 0;
+    void setPosicion(int f, int c);
+    void setCiclo(string ciclo);
+    void setVida(int v);
 };
 
 
