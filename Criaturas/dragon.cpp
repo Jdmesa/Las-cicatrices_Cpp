@@ -5,14 +5,16 @@
 #include <algorithm> // Para min y max
 #include "dragon.h"
 
-dragon::dragon(const string& nombre, int& fila, int& columna): nombre(nombre), criatura(fila, columna, 5) {}
+dragon::dragon(const string& nombre, int& fila, int& columna): nombre(nombre), criatura(fila, columna, 5), volador(true), regeneracion(2) {}
 dragon::~dragon() {
     cout << "Dragon ha sido destruido" << endl;
 }
 
 void dragon::moverse(mapa &m) {
-    int nuevaFila = fila + (rand() % 4 - 1) ;
-    int nuevaCol = columna + (rand() % 4 - 1) ;
+
+    int movimiento[] = {-4, -2, 0, 2, 4}; // El dragon vuela por ende puede tener saltos mayores.
+    int nuevaFila = fila + movimiento[rand() % 5] ;
+    int nuevaCol = columna + movimiento[rand() % 5] ;
 
     //Limitar dentro del mapa
     nuevaFila = max(0, min(nuevaFila, m.getFilas() - 1));
@@ -23,8 +25,7 @@ void dragon::moverse(mapa &m) {
     m.obtenerNodo(fila,columna).eliminarCriatura(this);
     m.obtenerNodo(nuevaFila,nuevaCol).agregarCriatura(this);
 
-    cout << nombre << "-> Moved, before : " << "Fila: " << fila+1 << " Columna: " << columna+1;
-    cout << "  After: " << "Fila: " << nuevaFila+1 << " Columna: " << nuevaCol+1 << " | Bioma actual: " << m.obtenerNodo(nuevaFila,nuevaCol).getTipo() << endl;
+    cout << nombre << " se movio a " << "Fila: " << nuevaFila+1 << " Columna: " << nuevaCol+1 << " | Bioma actual: " << m.obtenerNodo(nuevaFila,nuevaCol).getTipo() << endl;
 
     setPosicion(nuevaFila,nuevaCol);
 

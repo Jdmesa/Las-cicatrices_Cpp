@@ -11,7 +11,7 @@ class regeneracion {
 private:
     int puntos;
     public:
-    regeneracion();
+    regeneracion(int p);
     int getPuntos() const;
     void setPuntos(int p);
     int regenerar();

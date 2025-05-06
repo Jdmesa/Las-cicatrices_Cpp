@@ -6,7 +6,7 @@
 
 #include <cstdlib>
 
-regeneracion::regeneracion() : puntos(1) {}
+regeneracion::regeneracion(int p) : puntos(p) {}
 
 int regeneracion::getPuntos() const {
     return puntos;

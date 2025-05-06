@@ -5,9 +5,10 @@
 #ifndef HADA_H
 #define HADA_H
 #include "../Atributos/criatura.h"
+#include "../Atributos/fantasma.h"
 
 
-class hada : public criatura {
+class hada : public criatura, public fantasma {
     private:
     string nombre;
 public:

@@ -4,6 +4,9 @@
 
 #include "volador.h"
 
+volador::volador(bool volar) : volar(volar) {
+}
+
 bool volador::getVuela() const {
     return volar;
 }

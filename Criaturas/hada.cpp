@@ -7,7 +7,7 @@
 #include <random>
 #include <algorithm> // Para min y max
 
-hada::hada(const string &nombre, int fila, int columna) : nombre(nombre), criatura(fila, columna, 3) {
+hada::hada(const string &nombre, int fila, int columna) : nombre(nombre), criatura(fila, columna, 3), fantasma(true) {
 }
 
 void hada::morir(mapa &m) {

@@ -7,7 +7,7 @@
 #include <algorithm> // Para min y max
 using namespace std;
 
-enano::enano(string nombre, int fila, int columna) : nombre(nombre), criatura(fila, columna, 2) {}
+enano::enano(string nombre, int fila, int columna) : nombre(nombre), criatura(fila, columna, 2), regeneracion(1) {}
 
 void enano::moverse(mapa &m) {
     // Movimiento aleatorio a nodo vecino
@@ -24,8 +24,7 @@ void enano::moverse(mapa &m) {
     m.obtenerNodo(fila, columna).eliminarCriatura(this);
     m.obtenerNodo(nuevaFila, nuevaCol).agregarCriatura(this);
 
-    cout << "El enano " << nombre << " se movió a Fila: " << nuevaFila + 1 << " Columna: " << nuevaCol + 1
-         << " | Bioma actual: " << m.obtenerNodo(nuevaFila, nuevaCol).getTipo() << endl;
+    cout << nombre << " se movio a " << "Fila: " << nuevaFila+1 << " Columna: " << nuevaCol+1 << " | Bioma actual: " << m.obtenerNodo(nuevaFila,nuevaCol).getTipo() << endl;
 
     // Actualizar posición interna
     setPosicion(nuevaFila, nuevaCol);

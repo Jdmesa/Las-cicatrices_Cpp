@@ -5,9 +5,11 @@
 #ifndef DRAGON_H
 #define DRAGON_H
 #include "../Atributos/criatura.h"
+#include "../Atributos/regeneracion.h"
+#include "../Atributos/volador.h"
 
 
-class dragon : public criatura {
+class dragon : public criatura, public volador, public regeneracion {
 private:
     string nombre;
     bool vive;

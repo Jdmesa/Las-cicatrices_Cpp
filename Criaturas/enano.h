@@ -5,9 +5,10 @@
 #ifndef ENANO_H
 #define ENANO_H
 #include "../Atributos/criatura.h"
+#include "../Atributos/regeneracion.h"
 
 
-class enano : public criatura {
+class enano : public criatura, public regeneracion {
 private:
     string nombre;
     int fila;
