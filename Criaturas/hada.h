@@ -17,12 +17,10 @@ public:
     void morir(mapa &m) override;
     void moverse(mapa &m) override;
     void evolucion(mapa &m) override;
-    void setPosicion(int f, int c);
+    void pelear(criatura &otra) override;
 
     string getNombre() const override;
 
-    int getFila() const;
-    int getColumna() const;
 };
 
 

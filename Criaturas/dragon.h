@@ -18,9 +18,9 @@ private:
 
     void moverse(mapa &m) override;
     void evolucion(mapa &m) override;
-    void setPosicion(int f, int c);
     void morir(mapa &m) override;
-
+    void pelear(criatura &otra) override;
+    void recibirAtaque(int danio, mapa &m) override;
     string getNombre() const override;
 
     int getFila() const;

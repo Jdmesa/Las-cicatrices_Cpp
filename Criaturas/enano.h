@@ -18,8 +18,7 @@ public:
     void evolucion(mapa &m) override;
     void morir(mapa &m) override;
     string getNombre() const override;
-
-    void setPosicion(int f, int c);
+    void pelear(criatura &otra) override;
 
 };
 

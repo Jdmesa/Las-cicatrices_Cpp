@@ -61,6 +61,26 @@ void dragon::morir(mapa &m){
     delete this;
 }
 
+void dragon::pelear(criatura &otra) {
+
+    int danio = 2 + (rand() % 3); // Maximo de dano 4, minimo 2.
+    int cantidadVida = otra.getVida() - danio; // Se calcula la vida final de la criatura
+    otra.recibirAtaque(cantidadVida); // Se ejecuta que la otra criatura recibe el ataque
+    cout << nombre << " ha escupido una llamada intensa de fuego a " << otra.getNombre() << " y le hizo " << otra.getVida() << " de daño" << endl;
+}
+
+void dragon::recibirAtaque(int danio, mapa &m) {
+    setVida(danio); // Primero se establece el dano recibido
+    if (vida <= 0) { // Si la vida es menor o igual a 0, muere.
+        morir(m);
+    } else { // De lo contrario, si tiene regeneracion (como es el caso del dragon), regenera, de lo contrario no.
+        int puntosRegenerados = regenerar();
+        setVida(puntosRegenerados);
+        cout << nombre << " tiene regeneracion y ha regenerado " << puntosRegenerados << endl;
+    }
+
+}
+
 string dragon::getNombre() const {
     return nombre;
 }

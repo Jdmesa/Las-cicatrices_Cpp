@@ -17,7 +17,9 @@ void regeneracion::setPuntos(int p) {
 }
 
 int regeneracion::regenerar() {
-    int puntosAleatorios = rand() % 3; // Numero entre 0 y 2
-    setPuntos(puntos*puntosAleatorios); // Se multiplica los puntos actuales por los puntos aleatorios para la cantidad de vida a regenerar
-    return getPuntos(); //Retorna los puntos.
+    int numeroAleatorio =  rand() % 3; // Número entre 0 y 2
+    if (numeroAleatorio == 1) {
+        int vidaRegenerada = puntos + (rand() % 2 ); // Vida a regenerar
+        return vidaRegenerada;  // Retorna los puntos.
+    }
 }

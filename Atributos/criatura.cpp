@@ -17,3 +17,15 @@ void criatura::setCiclo(string ciclo) {
 void criatura::setVida(int v) {
     vida = v;
 }
+
+int criatura::getVida() const {
+    return vida;
+}
+
+int criatura::getFila() const {
+    return fila;
+}
+
+int criatura::getColumna() const {
+    return columna;
+}
