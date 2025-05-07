@@ -134,15 +134,18 @@ classDiagram
 
     }
     
-    
-    
 
-    Criatura <|-- LentoDeRaiz
-    Criatura <|-- Centella
-    Criatura <|-- Metamorfita
-    Centella <|-- Albo
-    Metamorfita <|-- Albo
-    Nodo "1" *-- "0..n" Criatura
-    Mapa "1" *-- "1" Nodo
+    criatura <|-- dragon
+    criatura <|-- gigante
+    criatura <|-- enano
+    criatura <|-- hada
+    
+    volador <|-- dragon
+    volador <|-- hada
+    
+    regeneracion <|-- dragon
+    regeneracion <|-- enano
+    regeneracion <|-- hada
+
 
 ```
