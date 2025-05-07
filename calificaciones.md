@@ -25,37 +25,37 @@
 
 ---
 
-## 👤 Evaluaciones de: Jose David Mesa (Líder)
+## 👤 Evaluaciones de: Jose Daniel Mesa (Líder)
 
 ### ✅ Autoevaluación — Jose David Mesa
 
 | Criterio                          | Puntaje (1-5) | Comentarios breves (rellenar por Jose David Mesa)                                     |
 | :-------------------------------- | :-----------: | :------------------------------------------------------------------------------------ |
-| Colaboración y trabajo en equipo  |               |                                                                                       |
-| Responsabilidad y compromiso      |               |                                                                                       |
-| Contribución técnica              |               |                                                                                       |
-| Uso de asistentes de IA           |               |                                                                                       |
-| **Subtotal autoevaluación** |    ** / 20** |                                                                                       |
+| Colaboración y trabajo en equipo  |      5         |                                                                                       |
+| Responsabilidad y compromiso      |      3         |                                                                                       |
+| Contribución técnica              |      5         |                                                                                       |
+| Uso de asistentes de IA           |        2       |                                                                                       |
+| **Subtotal autoevaluación** |    ** 15/ 20** |                                                                                       |
 
 ### 📝 Coevaluación — Jose David Gonzalez (evaluado por Jose David Mesa)
 
 | Criterio                          | Puntaje (1-5) | Comentarios breves (rellenar por Jose David Mesa)                                     |
 | :-------------------------------- | :-----------: | :------------------------------------------------------------------------------------ |
-| Colaboración y trabajo en equipo  |               |                                                                                       |
-| Responsabilidad y compromiso      |               |                                                                                       |
-| Contribución técnica              |               |                                                                                       |
-| Uso de asistentes de IA           |               |                                                                                       |
-| **Subtotal evaluación de Jose David Gonzalez** |    ** / 20** |                                                                                       |
+| Colaboración y trabajo en equipo  |      5         |   estuvo bien                                                                                    |
+| Responsabilidad y compromiso      |       5        |    buena                                                                                   |
+| Contribución técnica              |        5       |     buena                                                                                  |
+| Uso de asistentes de IA           |        3      |     no uso mucho                                                                                  |
+| **Subtotal evaluación de Jose David Gonzalez** |    ** 18/ 20** |                                                                                       |
 
 ### 📝 Coevaluación — Julian Hurtado (evaluado por Jose David Mesa)
 
-| Criterio                          | Puntaje (1-5) | Comentarios breves (rellenar por Jose David Mesa)                                     |
+| Criterio                          | Puntaje (1-5) | Comentarios breves (rellenar por Jose Daniel Mesa)                                     |
 | :-------------------------------- | :-----------: | :------------------------------------------------------------------------------------ |
-| Colaboración y trabajo en equipo  |               |                                                                                       |
-| Responsabilidad y compromiso      |               |                                                                                       |
-| Contribución técnica              |               |                                                                                       |
-| Uso de asistentes de IA           |               |                                                                                       |
-| **Subtotal evaluación de Julian Hurtado** |    ** / 20** |                                                                                       |
+| Colaboración y trabajo en equipo  |     5          |     buena                                                                                  |
+| Responsabilidad y compromiso      |     3         |       buena                                                                                |
+| Contribución técnica              |     4          |     buena                                                                                  |
+| Uso de asistentes de IA           |      2         |        no uso mucho                                                                               |
+| **Subtotal evaluación de Julian Hurtado** |    ** 14/ 20** |                                                                                       |
 
 ---
 
@@ -65,31 +65,31 @@
 
 | Criterio                          | Puntaje (1-5) | Comentarios breves (rellenar por Jose David Gonzalez)                                 |
 | :-------------------------------- | :-----------: | :------------------------------------------------------------------------------------ |
-| Colaboración y trabajo en equipo  |               |                                                                                       |
-| Responsabilidad y compromiso      |               |                                                                                       |
-| Contribución técnica              |               |                                                                                       |
-| Uso de asistentes de IA           |               |                                                                                       |
-| **Subtotal autoevaluación** |    ** / 20** |                                                                                       |
+| Colaboración y trabajo en equipo  |      5         |       Excelente colaboracion                                                          |
+| Responsabilidad y compromiso      |       3        |      Falta un poquito mas de compromiso                                               |
+| Contribución técnica              |        4       |       solucion de errore                                                                                |
+| Uso de asistentes de IA           |         4     |         poco manejo                                                                              |
+| **Subtotal autoevaluación** |    ** 16/ 20** |                                                                                       |
 
-### 📝 Coevaluación — Jose David Mesa (evaluado por Jose David Gonzalez)
+### 📝 Coevaluación — Jose Daniel Mesa (evaluado por Jose David Gonzalez)
 
 | Criterio                          | Puntaje (1-5) | Comentarios breves (rellenar por Jose David Gonzalez)                                 |
 | :-------------------------------- | :-----------: | :------------------------------------------------------------------------------------ |
-| Colaboración y trabajo en equipo  |               |                                                                                       |
-| Responsabilidad y compromiso      |               |                                                                                       |
-| Contribución técnica              |               |                                                                                       |
-| Uso de asistentes de IA           |               |                                                                                       |
-| **Subtotal evaluación de Jose David Mesa** |    ** / 20** |                                                                                       |
+| Colaboración y trabajo en equipo  |       5        |    Excelente participacion                                                                                   |
+| Responsabilidad y compromiso      |        4       |     Buen compromiso                                                                                  |
+| Contribución técnica              |         5      |     solucion de errores y contribucion en el codigo                                                                                  |
+| Uso de asistentes de IA           |         2      |    Poco manejo de IA                                                                             |
+| **Subtotal evaluación de Jose David Mesa** |    ** 17 / 20** |                                                                                       |
 
 ### 📝 Coevaluación — Julian Hurtado (evaluado por Jose David Gonzalez)
 
 | Criterio                          | Puntaje (1-5) | Comentarios breves (rellenar por Jose David Gonzalez)                                 |
 | :-------------------------------- | :-----------: | :------------------------------------------------------------------------------------ |
-| Colaboración y trabajo en equipo  |               |                                                                                       |
-| Responsabilidad y compromiso      |               |                                                                                       |
-| Contribución técnica              |               |                                                                                       |
-| Uso de asistentes de IA           |               |                                                                                       |
-| **Subtotal evaluación de Julian Hurtado** |    ** / 20** |                                                                                       |
+| Colaboración y trabajo en equipo  |       5        |      Excelente contribucion                                                                                 |
+| Responsabilidad y compromiso      |        5       |      Demasiado comprometido                                                                                 |
+| Contribución técnica              |         5      |        Solucion de errores y contribucion en el codigo                                                                               |
+| Uso de asistentes de IA           |          4     |            solo para manejo de errores                                                                           |
+| **Subtotal evaluación de Julian Hurtado** |    ** 19 / 20** |                                                                                       |
 
 ---
 
