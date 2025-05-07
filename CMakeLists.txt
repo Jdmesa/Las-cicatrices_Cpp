@@ -7,8 +7,6 @@ add_executable(Las_cicatrices_Cpp main.cpp
         Ecosistema/nodo.cpp
         Ecosistema/mapa.cpp
         Ecosistema/mapa.h
-        Criaturas/criaturaPrueba.cpp
-        Criaturas/criaturaPrueba.h
         Atributos/criatura.cpp
         Atributos/criatura.h
         Ecosistema/ecosistema.cpp

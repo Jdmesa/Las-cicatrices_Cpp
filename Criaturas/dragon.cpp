@@ -17,7 +17,6 @@ void dragon::moverse(mapa &m) {
     nuevaFila = max(0, min(nuevaFila, m.getFilas() - 1));
     nuevaCol = max(0, min(nuevaCol, m.getColumnas() - 1));
 
-    cout << nuevaFila << " " << nuevaCol <<  " "<< nombre << endl;
 
     if (nuevaFila == fila && nuevaCol == columna) return;
 
@@ -55,39 +54,36 @@ void dragon::evolucion(mapa &m){
 
 
 void dragon::morir(){
-    setVida(0);
     cout << nombre << " Ha perecido" << endl;
-    delete this;
+    setVida(0);
 }
 
-void dragon::pelear(criatura &otra) {
-
-    int danio = 2 + (rand() % 3); // Maximo de dano 4, minimo 2.
-    int cantidadVida = otra.getVida() - danio; // Se calcula la vida final de la criatura
-    otra.recibirAtaque(cantidadVida); // Se ejecuta que la otra criatura recibe el ataque
-    cout << nombre << " ha escupido una llamada intensa de fuego a " << otra.getNombre() << " y le hizo " << otra.getVida() << " de daño" << endl;
+void dragon::pelear(criatura *otra) {
+    if ((otra)->getVida() > 0) {
+        int danio = 2 + (rand() % 3); // Maximo de dano 4, minimo 2.
+        int cantidadVida = otra->getVida() - danio; // Se calcula la vida final de la criatura
+        cout << nombre << " ha escupido una llamada intensa de fuego a " << otra->getNombre();
+        otra->recibirAtaque(cantidadVida); // Se ejecuta que la otra criatura recibe el ataque
+    }
 }
 
 void dragon::recibirAtaque(int danio) {
-    setVida(danio); // Primero se establece el dano recibido
+    cout << " y quito " << min(vida, danio) << " puntos" << endl;
+    setVida(min(vida, danio)); // Primero se establece el dano recibido
     if (vida <= 0) { // Si la vida es menor o igual a 0, muere.
         morir();
     } else { // De lo contrario, si tiene regeneracion (como es el caso del dragon), regenera, de lo contrario no.
         int puntosRegenerados = regenerar();
-        setVida(puntosRegenerados);
-        cout << nombre << " tiene regeneracion y ha regenerado " << puntosRegenerados << endl;
+        if (puntosRegenerados == 0 ) {
+            setVida(vida);
+        } else {
+            setVida(puntosRegenerados);
+        }
+        cout << nombre << " tiene regeneracion y ahora tiene " << vida << endl;
     }
 
 }
 
 string dragon::getNombre() const {
     return nombre;
-}
-
-int dragon::getFila() const {
-    return fila;
-}
-
-int dragon::getColumna() const {
-    return columna;
 }

@@ -35,6 +35,8 @@ private:
     void agregarCriatura(criatura* criaturas);
     void eliminarCriatura(criatura* criatura);
 
+    void eliminarMuertas();
+
     const vector<criatura*>& getCriaturas() const;
 
 

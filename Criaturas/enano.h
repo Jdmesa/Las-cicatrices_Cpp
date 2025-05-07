@@ -19,7 +19,7 @@ public:
     void morir() override;
     void recibirAtaque(int danio) override;
     string getNombre() const override;
-    void pelear(criatura &otra) override;
+    void pelear(criatura *otra) override;
 
 };
 

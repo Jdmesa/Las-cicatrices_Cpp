@@ -54,21 +54,26 @@ void enano::evolucion(mapa &m) {
     }
 }
 
-void enano::pelear(criatura &otra) {
+void enano::pelear(criatura *otra) {
     int danio = 1 + (rand() % 3); // Maximo de dano 4, minimo 2.
-    int cantidadVida = otra.getVida() - danio; // Se calcula la vida final de la criatura
-    otra.recibirAtaque(cantidadVida); // Se ejecuta que la otra criatura recibe el ataque
-    cout << nombre << " le ha metido un picazo a " << otra.getNombre() << " y le hizo " << otra.getVida() << " de daño" << endl;
+    int cantidadVida = otra->getVida() - danio; // Se calcula la vida final de la criatura
+    cout << nombre << " le ha metido un picazo a " << otra->getNombre();
+    otra->recibirAtaque(cantidadVida); // Se ejecuta que la otra criatura recibe el ataque
 }
 
 void enano::recibirAtaque(int danio){
-    setVida(danio); // Primero se establece el dano recibido
+    cout << " y quito " << min(danio, vida) << " puntos" << endl;
+    setVida(min(danio, vida)); // Primero se establece el dano recibido
     if (vida <= 0) { // Si la vida es menor o igual a 0, muere.
         morir();
-    } else { // En este caso se regenera debido a su atributo.
+    } else { // De lo contrario, si tiene regeneracion (como es el caso del dragon), regenera, de lo contrario no.
         int puntosRegenerados = regenerar();
-        setVida(puntosRegenerados);
-        cout << nombre << " tiene regeneracion y ha regenerado " << puntosRegenerados << endl;
+        if (puntosRegenerados == 0 ) {
+            setVida(vida);
+        } else {
+            setVida(puntosRegenerados);
+        }
+        cout << nombre << " tiene regeneracion y ahora tiene " << vida << endl;
     }
 }
 
@@ -79,5 +84,4 @@ string enano::getNombre() const {
 void enano::morir() {
     cout << nombre << " ha perecido." << endl;
     setVida(0);
-    delete this;
 }

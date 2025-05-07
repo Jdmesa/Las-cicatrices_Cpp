@@ -22,4 +22,5 @@ int regeneracion::regenerar() {
         int vidaRegenerada = puntos + (rand() % 2 ); // Vida a regenerar
         return vidaRegenerada;  // Retorna los puntos.
     }
+    return 0;
 }

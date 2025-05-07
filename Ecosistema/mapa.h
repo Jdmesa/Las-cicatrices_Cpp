@@ -23,6 +23,7 @@ private:
     void moverCriaturas();
     void evolucionarCriaturas(mapa &m);
     void mostrarMapa() const;
+    int getTotalCriaturasEnMapa();
     int getFilas() const;
     int getColumnas() const;
 

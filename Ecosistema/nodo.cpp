@@ -47,10 +47,12 @@ void nodo::actuarCriaturas(mapa &m) {
         criatura* c1 = criaturitas[idx1];
         criatura* c2 = criaturitas[idx2]; //Seleccion de criatura en base a la posicion en el vector
 
-        // Pelea mutua
-        c1->pelear(*c2);
-        c2->pelear(*c1);
+        if (c1->getVida() > 0 && c2->getVida() > 0) { // Asegúrate de que ambos estén vivos antes de pelear
+            c1->pelear(c2);
+            c2->pelear(c1);
+        }
     }
+    eliminarMuertas();
 }
 
 void nodo::evolucionarCriaturas(mapa &m) {
@@ -69,6 +71,18 @@ void nodo::agregarCriatura(criatura *c) {
 
 void nodo::eliminarCriatura(criatura *c) {
     criaturas.erase(remove(criaturas.begin(), criaturas.end(), c), criaturas.end());
+}
+
+void nodo::eliminarMuertas() { // Para eliminar las criaturas que ya no esten vivas.
+    auto it = criaturas.begin();
+    while (it != criaturas.end()) {
+        if ((*it)->getVida() <= 0) {
+            delete *it;
+            it = criaturas.erase(it); // erase devuelve un iterador al siguiente elemento válido
+        } else {
+            ++it;
+        }
+    }
 }
 
 const vector<criatura *> & nodo::getCriaturas() const {

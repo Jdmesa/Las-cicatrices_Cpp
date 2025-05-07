@@ -17,7 +17,7 @@ public:
     void morir() override;
     void moverse(mapa &m) override;
     void evolucion(mapa &m) override;
-    void pelear(criatura &otra) override;
+    void pelear(criatura *otra) override;
     void recibirAtaque(int danio) override;
 
     string getNombre() const override;

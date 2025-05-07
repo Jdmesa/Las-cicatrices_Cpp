@@ -72,6 +72,17 @@ void mapa::mostrarMapa() const {
     cout << cadena << endl;
 }
 
+int mapa::getTotalCriaturasEnMapa() {
+    int totalCriaturas = 0;
+    for (const auto& filaDeNodos : matriz) {
+        for (const auto& nodoActual : filaDeNodos) {
+            totalCriaturas += nodoActual.getTotalCriaturas();
+        }
+    }
+    return totalCriaturas;
+}
+
+
 int mapa::getFilas() const {
     return filas;
 }

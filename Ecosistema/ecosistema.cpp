@@ -7,7 +7,6 @@
 #include <limits>
 #include <random>
 
-#include "../Criaturas/criaturaPrueba.h"
 #include "../Criaturas/dragon.h"
 #include "../Criaturas/enano.h"
 #include "../Criaturas/hada.h"
@@ -64,7 +63,6 @@ vector<criatura*> generacionCriaturas(int cantidad, mapa& m, int f, int c) {
                 nueva_criatura = new enano(nombre_aleatorio, fila_aleatoria, columna_aleatoria);
             break;
         }
-        cout << nueva_criatura->getNombre() << endl;
         m.obtenerNodo(fila_aleatoria, columna_aleatoria).agregarCriatura(nueva_criatura);
         criaturas.push_back(nueva_criatura);
     }
@@ -103,6 +101,10 @@ void ecosistema::ciclo(int f, int c) {
                 }
             }
         }
+        if (m.getTotalCriaturasEnMapa() == 0 ) {
+            cout << "No existe ninguna criatura viva, se finalizara la simulacion." << endl;
+            exit(0);
+        }
         m.evolucionarCriaturas(m);
         m.mostrarMapa();
 
@@ -111,6 +113,9 @@ void ecosistema::ciclo(int f, int c) {
         if (comando == 'e') {
             cout << "Hasta la proxima!" << endl;
             exit(0);
+        }
+        if (comando == 't') {
+            cout << "Total de criaturas actuales vivas: " << m.getTotalCriaturasEnMapa() << endl;
         }
         if (comando == 's') {}
 

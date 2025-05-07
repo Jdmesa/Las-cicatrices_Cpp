@@ -13,7 +13,6 @@ hada::hada(const string &nombre, int fila, int columna) : nombre(nombre), criatu
 void hada::morir() {
     cout << nombre << " ha perecido." << endl;
     setVida(0);
-    delete this;
 }
 
 void hada::moverse(mapa &m) {
@@ -60,17 +59,21 @@ void hada::evolucion(mapa &m){
     }
 }
 
-void hada::pelear(criatura &otra) {
+void hada::pelear(criatura *otra) {
     int danio = 2 + (rand() % 3); // Maximo de dano 4, minimo 2.
-    int cantidadVida = otra.getVida() - danio; // Se calcula la vida final de la criatura
-    otra.recibirAtaque(cantidadVida); // Se ejecuta que la otra criatura recibe el ataque
-    cout << nombre << " ha lanzado un hechizo a " << otra.getNombre() << " y le hizo " << otra.getVida() << " de daño" << endl;
+    int cantidadVida = otra->getVida() - danio; // Se calcula la vida final de la criatura
+    cout << nombre << " ha lanzado un hechizo a " << otra->getNombre();
+    otra->recibirAtaque(cantidadVida); // Se ejecuta que la otra criatura recibe el ataque
 }
 
 void hada::recibirAtaque(int danio) {
-    setVida(0);//En este caso la vida del hada no cambia debido a que tiene el atributo fantasma
-    }             // por ende no le pueden hacer daño las demas criaturas
-
+    cout << " es fantasma y a recibido minimo daño." << endl;
+    setVida(vida - 1);
+    //En este caso la vida del hada recibe minimo dano debido a que tiene el atributo fantasma
+    if (vida <= 0) {
+        morir();
+    }
+}
 
 
 string hada::getNombre() const {

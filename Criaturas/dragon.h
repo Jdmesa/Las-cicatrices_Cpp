@@ -14,18 +14,14 @@ private:
     string nombre;
     public:
     dragon(const string& nombre, int& fila, int& columna);
-    ~dragon();
 
     void moverse(mapa &m) override;
     void evolucion(mapa &m) override;
     void morir() override;
-    void pelear(criatura &otra) override;
+    void pelear(criatura *otra) override;
     void recibirAtaque(int danio) override;
     string getNombre() const override;
 
-    int getFila() const;
-    int getColumna() const;
-    bool getVive();
 };
 
 
