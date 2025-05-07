@@ -49,8 +49,6 @@ void dragon::evolucion(mapa &m){
             int indice = distribucionOpciones(gen3);
             string opcion = opciones2[indice];
             setCiclo(opcion);
-
-            cout << "El dragon " << nombre << " evolucionó a " << opcion << endl;
         }
     }
 }

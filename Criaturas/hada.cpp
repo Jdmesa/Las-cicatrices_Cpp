@@ -23,8 +23,8 @@ void hada::moverse(mapa &m) {
     int nuevaCol = columna + (rand() % 3 - 1);
 
     // Limitar dentro del mapa
-    nuevaFila = std::max(0, std::min(nuevaFila, m.getFilas() - 1));
-    nuevaCol = std::max(0, std::min(nuevaCol, m.getColumnas() - 1));
+    nuevaFila = max(0, std::min(nuevaFila, m.getFilas() - 1));
+    nuevaCol = max(0, std::min(nuevaCol, m.getColumnas() - 1));
 
     // No moverse si no cambia de posición
     if (nuevaFila == fila && nuevaCol == columna) return;
@@ -34,12 +34,9 @@ void hada::moverse(mapa &m) {
     m.obtenerNodo(nuevaFila, nuevaCol).agregarCriatura(this);
 
     // Mostrar información del movimiento
-    std::cout << nombre << " (Hada)-> Se movió de Fila: " << fila + 1 << " Columna: " << columna + 1;
-    std::cout << " a Fila: " << nuevaFila + 1 << " Columna: " << nuevaCol + 1;
-    std::cout << " | Bioma actual: " << m.obtenerNodo(nuevaFila, nuevaCol).getTipo() << std::endl;
+    cout << nombre << " se movio a " << "Fila: " << nuevaFila+1 << " Columna: " << nuevaCol+1 << " | Bioma actual: " << m.obtenerNodo(nuevaFila,nuevaCol).getTipo() << endl;
 
-    // Actualizar la posición interna
-    setPosicion(nuevaFila, nuevaCol);
+    setPosicion(nuevaFila,nuevaCol);
 }
 
 void hada::evolucion(mapa &m){
@@ -60,16 +57,8 @@ void hada::evolucion(mapa &m){
             int indice = distribucionOpciones(gen3);
             string opcion = opciones2[indice];
             setCiclo(opcion);
-
-            cout << "El Hada " << nombre << " evolucionó a " << opcion << endl;
         }
     }
-}
-
-
-void hada::setPosicion(int f, int c) {
-    fila = f;
-    columna = c;
 }
 
 string hada::getNombre() const {

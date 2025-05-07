@@ -49,7 +49,7 @@ void enano::evolucion(mapa &m) {
             string opcion = opciones2[indice];
             setCiclo(opcion);
 
-            cout << "El enano " << nombre << " evolucionó a " << opcion << endl;
+            cout << nombre << " evolucionó a " << opcion << endl;
         }
     }
 }
@@ -58,13 +58,8 @@ string enano::getNombre() const {
     return nombre;
 }
 
-void enano::setPosicion(int f, int c) {
-    fila = f;
-    columna = c;
-}
-
 void enano::morir(mapa &m) {
-    cout << "El enano " << nombre << " ha perecido." << endl;
+    cout << nombre << " ha perecido." << endl;
     m.obtenerNodo(fila, columna).eliminarCriatura(this);
     setVida(0);
     delete this;
