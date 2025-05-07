@@ -40,7 +40,7 @@ void dragon::evolucion(mapa &m){
     int numeroEnRangoRandom = distribucionRango(gen2);
     if (numeroEnRangoRandom == numeroAdivinador) {
         if (cicloEv == "zombie") {
-            morir(m);
+            morir();
         } else {
             random_device rd3;
             mt19937 gen3(rd3());
@@ -54,9 +54,8 @@ void dragon::evolucion(mapa &m){
 }
 
 
-void dragon::morir(mapa &m){
+void dragon::morir(){
     setVida(0);
-    m.obtenerNodo(fila, columna).eliminarCriatura(this);
     cout << nombre << " Ha perecido" << endl;
     delete this;
 }
@@ -69,10 +68,10 @@ void dragon::pelear(criatura &otra) {
     cout << nombre << " ha escupido una llamada intensa de fuego a " << otra.getNombre() << " y le hizo " << otra.getVida() << " de daño" << endl;
 }
 
-void dragon::recibirAtaque(int danio, mapa &m) {
+void dragon::recibirAtaque(int danio) {
     setVida(danio); // Primero se establece el dano recibido
     if (vida <= 0) { // Si la vida es menor o igual a 0, muere.
-        morir(m);
+        morir();
     } else { // De lo contrario, si tiene regeneracion (como es el caso del dragon), regenera, de lo contrario no.
         int puntosRegenerados = regenerar();
         setVida(puntosRegenerados);

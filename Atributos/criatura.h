@@ -24,7 +24,7 @@ public:
     virtual ~criatura() = default;
     virtual void moverse(mapa &m) = 0;
     virtual void evolucion(mapa &m) = 0;
-    virtual void morir(mapa &m) = 0;
+    virtual void morir() = 0;
     virtual void pelear(criatura &otra) = 0;
     virtual void recibirAtaque(int danio) = 0;
     void setPosicion(int f, int c);

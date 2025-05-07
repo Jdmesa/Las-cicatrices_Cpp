@@ -14,10 +14,11 @@ class hada : public criatura, public fantasma {
 public:
     hada(const string& nombre, int fila, int columna);
 
-    void morir(mapa &m) override;
+    void morir() override;
     void moverse(mapa &m) override;
     void evolucion(mapa &m) override;
     void pelear(criatura &otra) override;
+    void recibirAtaque(int danio) override;
 
     string getNombre() const override;
 

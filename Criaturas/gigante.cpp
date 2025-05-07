@@ -9,9 +9,8 @@
 gigante::gigante(const string &nombre, int fila, int columna) : criatura(fila, columna, 6) {
 }
 
-void gigante::morir(mapa &m) {
+void gigante::morir() {
     cout << nombre << " ha perecido." << endl;
-    m.obtenerNodo(fila, columna).eliminarCriatura(this);
     setVida(0);
     delete this;
 }
@@ -45,7 +44,7 @@ void gigante::evolucion(mapa &m) {
     int numeroEnRangoRandom = distribucionRango(gen2);
     if (numeroEnRangoRandom == numeroAdivinador) {
         if (cicloEv == "zombie") {
-            morir(m);
+            morir();
         } else {
             random_device rd3;
             mt19937 gen3(rd3());
@@ -58,14 +57,24 @@ void gigante::evolucion(mapa &m) {
     }
 }
 
+void gigante::pelear(criatura &otra) {
+    int danio = 2 + (rand() % 3); // Maximo de dano 4, minimo 2.
+    int cantidadVida = otra.getVida() - danio; // Se calcula la vida final de la criatura
+    otra.recibirAtaque(cantidadVida); // Se ejecuta que la otra criatura recibe el ataque
+    cout << nombre << " ha aplastado a  " << otra.getNombre() << " y le hizo " << otra.getVida() << " de daño" << endl;
+}
+
+void gigante::recibirAtaque(int danio) {
+        setVida(danio); // Primero se establece el dano recibido
+        if (vida <= 0) {
+            // Si la vida es menor o igual a 0, muere.
+            morir();
+        }
+}
+
+
+
 string gigante::getNombre() const {
     return nombre;
 }
 
-int gigante::getFila() const {
-    return fila;
-}
-
-int gigante::getColumna() const {
-    return columna;
-}

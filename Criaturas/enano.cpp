@@ -39,7 +39,7 @@ void enano::evolucion(mapa &m) {
     int numeroEnRangoRandom = distribucionRango(gen2);
     if (numeroEnRangoRandom == numeroAdivinador) {
         if (cicloEv == "zombie") {
-            morir(m);
+            morir();
         } else {
             random_device rd3;
             mt19937 gen3(rd3());
@@ -54,13 +54,30 @@ void enano::evolucion(mapa &m) {
     }
 }
 
+void enano::pelear(criatura &otra) {
+    int danio = 1 + (rand() % 3); // Maximo de dano 4, minimo 2.
+    int cantidadVida = otra.getVida() - danio; // Se calcula la vida final de la criatura
+    otra.recibirAtaque(cantidadVida); // Se ejecuta que la otra criatura recibe el ataque
+    cout << nombre << " le ha metido un picazo a " << otra.getNombre() << " y le hizo " << otra.getVida() << " de daño" << endl;
+}
+
+void enano::recibirAtaque(int danio){
+    setVida(danio); // Primero se establece el dano recibido
+    if (vida <= 0) { // Si la vida es menor o igual a 0, muere.
+        morir();
+    } else { // En este caso se regenera debido a su atributo.
+        int puntosRegenerados = regenerar();
+        setVida(puntosRegenerados);
+        cout << nombre << " tiene regeneracion y ha regenerado " << puntosRegenerados << endl;
+    }
+}
+
 string enano::getNombre() const {
     return nombre;
 }
 
-void enano::morir(mapa &m) {
+void enano::morir() {
     cout << nombre << " ha perecido." << endl;
-    m.obtenerNodo(fila, columna).eliminarCriatura(this);
     setVida(0);
     delete this;
 }
