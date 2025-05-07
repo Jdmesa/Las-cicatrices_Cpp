@@ -1,3 +1,0 @@
-C:/Users/Julian/Documents/CLion/Las-cicatrices_Cpp/cmake-build-debug/CMakeFiles/Las_cicatrices_Cpp.dir
-C:/Users/Julian/Documents/CLion/Las-cicatrices_Cpp/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/Julian/Documents/CLion/Las-cicatrices_Cpp/cmake-build-debug/CMakeFiles/rebuild_cache.dir
