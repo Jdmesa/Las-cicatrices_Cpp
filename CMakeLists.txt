@@ -3,6 +3,10 @@ project(Las_cicatrices_Cpp)
 
 set(CMAKE_CXX_STANDARD 20)
 
+if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
+    set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -static")
+endif()
+
 add_executable(Las_cicatrices_Cpp main.cpp
         Ecosistema/nodo.cpp
         Ecosistema/mapa.cpp
