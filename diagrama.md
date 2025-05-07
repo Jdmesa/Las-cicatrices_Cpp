@@ -143,6 +143,6 @@ classDiagram
     Centella <|-- Albo
     Metamorfita <|-- Albo
     Nodo "1" *-- "0..n" Criatura
-    Mapa "1" *-- "1" Nodo
+    Mapa "1" *-- "1" Nodo..
 
 ```
