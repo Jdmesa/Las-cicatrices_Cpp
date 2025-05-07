@@ -39,13 +39,13 @@
 
 ### 📝 Coevaluación — Jose David Gonzalez (evaluado por Jose Daniel Mesa)
 
-| Criterio                          | Puntaje (1-5) | Comentarios breves (rellenar por Jose David Mesa)                                     |
-| :-------------------------------- | :-----------: | :------------------------------------------------------------------------------------ |
-| Colaboración y trabajo en equipo  |               |                                                                                       |
-| Responsabilidad y compromiso      |               |                                                                                       |
-| Contribución técnica              |               |                                                                                       |
-| Uso de asistentes de IA           |               |                                                                                       |
-| **Subtotal evaluación de Jose David Gonzalez** |    ** / 20** |                                                                                       |
+| Criterio                          | Puntaje (1-5) | Comentarios breves (rellenar por Jose David Mesa) |
+| :-------------------------------- |:-------------:|:--------------------------------------------------|
+| Colaboración y trabajo en equipo  |       5       | Excelente colaboración                            |
+| Responsabilidad y compromiso      |       3       | Falta un poco más de compromiso                   |
+| Contribución técnica              |       5       | Solución de errores                               |
+| Uso de asistentes de IA           |       4       | Apoyo necesario                                   |
+| **Subtotal evaluación de Jose David Gonzalez** | ** 17 / 20**  |                                                   |
 
 ### 📝 Coevaluación — Julian Hurtado (evaluado por Jose Daniel Mesa)
 
