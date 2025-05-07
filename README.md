@@ -54,7 +54,13 @@ Es muy fácil ser el espectador de este mundo:
         ```
     * Escribe `1` o `2` y presiona `Enter`.
 3.  **¡Comienza la Magia!** Verás el tamaño del mapa y cuántas criaturas empezaron la aventura. También aparecerá el primer vistazo del mapa.
-4.  **Controla el Tiempo:**
+    * Tu mapa se podria ver asi:
+     
+     ![image](https://github.com/user-attachments/assets/a4f5cb6d-a68b-4908-b055-03bce013b6b2)
+    * Los corchetes son nodos donde estaran las criaturas y la letra indica el tipo de terreno que es la celda! (Dependiendo del bioma que allas escogido :))
+       * Boscoso -> seran terrenos **D**ensos, **C**laros y **O**scuros
+       * Volcanico -> seran terrenos **R**ocosos, **S**enizas y **F**umarolas 
+5.  **Controla el Tiempo:**
     * Después de cada turno, el mapa se actualizará, y te preguntará qué hacer:
         ```
         Escriba un comando o (s) para continuar.
@@ -62,7 +68,8 @@ Es muy fácil ser el espectador de este mundo:
     * Pulsa `s` y `Enter`➡️ para pasar al siguiente turno y ver qué pasa.
     * Pulsa `t` y `Enter`🔢 para saber cuántas criaturas siguen vivas.
     * Pulsa `e` y `Enter`🚪 para cerrar el juego y volver a la realidad.
-5.  **El Fin (o un Nuevo Comienzo):** La simulación se detiene si todas las criaturas han perecido o si tú decides salir.
+6.  **El Fin (o un Nuevo Comienzo):** La simulación se detiene si todas las criaturas han perecido o si tú decides salir.
+    * ![image](https://github.com/user-attachments/assets/50952e86-1a12-464c-a69a-9b78c7ae65ca)
 
 ### ✅ Requisitos (Lo que necesitas):
 
