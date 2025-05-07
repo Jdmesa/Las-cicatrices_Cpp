@@ -10,7 +10,7 @@ Nuestro objetivo era simple pero desafiante: crear un pequeño universo digital 
 
 Somos un trío de aventureros del código que se unió para dar vida a este valle:
 
-* **Jose David Mesa (Líder del Pelotón)** 👑: Guiando la estrategia y asegurándose de que todas las piezas encajaran.
+* **Jose Daniel Mesa (Líder del Pelotón)** 👑: Guiando la estrategia y asegurándose de que todas las piezas encajaran.
 * **Jose David Gonzalez (El Arquitecto de Mundos)** 🗺️: Contribuyendo al diseño y la lógica del ecosistema.
 * **Julian Hurtado (El Herrero de Criaturas)** 🛠️: Forjando las criaturas y sus habilidades únicas.
 
