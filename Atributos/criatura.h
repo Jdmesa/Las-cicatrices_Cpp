@@ -20,12 +20,12 @@ class criatura {
 public:
     criatura(int& fila, int& columna, int vida);
     // par de funciones virtuales para que cada criatura modifique esto a su gusto.
-    //virtual void morir() const = 0;
     virtual string getNombre() const = 0;
     virtual ~criatura() = default;
     virtual void moverse(mapa &m) = 0;
     virtual void evolucion(mapa &m) = 0;
     virtual void morir(mapa &m) = 0;
+    virtual void pelear(criatura &otra);
     void setPosicion(int f, int c);
     void setCiclo(string ciclo);
     void setVida(int v);
