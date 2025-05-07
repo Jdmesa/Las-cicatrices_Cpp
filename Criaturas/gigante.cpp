@@ -6,7 +6,7 @@
 #include <random>
 #include <algorithm> // Para min y max
 
-gigante::gigante(const string &nombre, int fila, int columna) : criatura(fila, columna, 6) {
+gigante::gigante(const string &nombre, int fila, int columna) : nombre(nombre), criatura(fila, columna, 6) {
 }
 
 void gigante::morir() {
@@ -64,6 +64,7 @@ void gigante::pelear(criatura *otra) {
 }
 
 void gigante::recibirAtaque(int danio) {
+        cout << " y ha recibido " << min(danio, vida) << " daño" << endl;
         setVida(min(danio, vida)); // Primero se establece el dano recibido
         if (vida <= 0) {
             // Si la vida es menor o igual a 0, muere.
