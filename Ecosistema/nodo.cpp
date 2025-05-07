@@ -28,6 +28,7 @@ void nodo::actuarCriaturas(mapa &m) {
     for (auto criatura : criaturas) {
         criatura->moverse(m);
     }
+    // getCriaturas y si hay 2 o mas criaturas -> Pelear
 }
 
 void nodo::evolucionarCriaturas(mapa &m) {

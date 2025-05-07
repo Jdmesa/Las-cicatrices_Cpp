@@ -12,7 +12,6 @@
 class dragon : public criatura, public volador, public regeneracion {
 private:
     string nombre;
-    bool vive;
     public:
     dragon(const string& nombre, int& fila, int& columna);
     ~dragon();

@@ -6,9 +6,6 @@
 #include "dragon.h"
 
 dragon::dragon(const string& nombre, int& fila, int& columna): nombre(nombre), criatura(fila, columna, 5), volador(true), regeneracion(2) {}
-dragon::~dragon() {
-    cout << "Dragon ha sido destruido" << endl;
-}
 
 void dragon::moverse(mapa &m) {
 
@@ -19,6 +16,8 @@ void dragon::moverse(mapa &m) {
     //Limitar dentro del mapa
     nuevaFila = max(0, min(nuevaFila, m.getFilas() - 1));
     nuevaCol = max(0, min(nuevaCol, m.getColumnas() - 1));
+
+    cout << nuevaFila << " " << nuevaCol <<  " "<< nombre << endl;
 
     if (nuevaFila == fila && nuevaCol == columna) return;
 
@@ -58,16 +57,10 @@ void dragon::evolucion(mapa &m){
 
 
 void dragon::morir(mapa &m){
-    vive = false;
+    setVida(0);
     m.obtenerNodo(fila, columna).eliminarCriatura(this);
     cout << nombre << " Ha perecido" << endl;
-    dragon::~dragon();
-}
-
-
-void dragon::setPosicion(int f, int c) {
-    fila = f;
-    columna = c;
+    delete this;
 }
 
 string dragon::getNombre() const {
@@ -80,8 +73,4 @@ int dragon::getFila() const {
 
 int dragon::getColumna() const {
     return columna;
-}
-
-bool dragon::getVive() {
-    return vive;
 }

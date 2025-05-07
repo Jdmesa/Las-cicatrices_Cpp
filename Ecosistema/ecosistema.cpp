@@ -65,12 +65,13 @@ vector<criatura*> generacionCriaturas(int cantidad, mapa& m, int f, int c) {
             break;
         }
         cout << nueva_criatura->getNombre() << endl;
+        m.obtenerNodo(fila_aleatoria, columna_aleatoria).agregarCriatura(nueva_criatura);
         criaturas.push_back(nueva_criatura);
     }
     return criaturas;
 }
 
-ecosistema::ecosistema(int f, int c, char bioma, int ciclos) : m(f,c,bioma), ciclos(ciclos) {
+ecosistema::ecosistema(int f, int c, char bioma, int ciclos) : m(f,c,bioma), cicloActual(ciclos) {
     random_device rd;
     mt19937 gen(rd());
     uniform_int_distribution<> distribution(10,50); // Minimo 10 criaturas, maximo 50.
@@ -90,10 +91,10 @@ ecosistema::ecosistema(int f, int c, char bioma, int ciclos) : m(f,c,bioma), cic
 
 void ecosistema::ciclo(int f, int c) {
     int filas, columnas;
+    char comando;
     filas = f;
     columnas = c;
-
-    for (int i = 1; i < ciclos+1; i++) {
+    for (int i = 1; true ; i++) {
         cout << "Ciclo #" << i << endl;
         for (int j = 0; j < filas; j++) {
             for (int k = 0; k < columnas; k++) {
@@ -104,14 +105,18 @@ void ecosistema::ciclo(int f, int c) {
         }
         m.evolucionarCriaturas(m);
         m.mostrarMapa();
-        if (i < ciclos) {
-            cout << "Presiona [ENTER] para continuar al ciclo #" << i+1 << endl;
-            cin.get();
+
+        cout << "Escriba un comando o (s) para continuar." << endl;
+        cin>>comando;
+        if (comando == 'e') {
+            cout << "Hasta la proxima!" << endl;
+            exit(0);
         }
+        if (comando == 's') {}
 
     }
 }
 
 int ecosistema::getCiclos() const {
-    return ciclos;
+    return cicloActual;
 }

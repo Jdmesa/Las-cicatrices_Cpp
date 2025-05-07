@@ -11,10 +11,8 @@
 class enano : public criatura, public regeneracion {
 private:
     string nombre;
-    int fila;
-    int columna;
 public:
-    enano(string nombre, int fila, int columna);
+    enano(const string& nombre, int fila, int columna);
 
     void moverse(mapa &m) override;
     void evolucion(mapa &m) override;

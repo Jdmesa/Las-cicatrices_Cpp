@@ -7,7 +7,8 @@
 #include <algorithm> // Para min y max
 using namespace std;
 
-enano::enano(string nombre, int fila, int columna) : nombre(nombre), criatura(fila, columna, 2), regeneracion(1) {}
+enano::enano(const string& nombre, int fila, int columna) : nombre(nombre), criatura(fila, columna, 2), regeneracion(1) {
+}
 
 void enano::moverse(mapa &m) {
     // Movimiento aleatorio a nodo vecino
@@ -17,7 +18,6 @@ void enano::moverse(mapa &m) {
     // Limitar dentro del mapa
     nuevaFila = max(0, min(nuevaFila, m.getFilas() - 1));
     nuevaCol = max(0, min(nuevaCol, m.getColumnas() - 1));
-
     if (nuevaFila == fila && nuevaCol == columna) return;  // No se mueve si es la misma posición generada
 
     // Se mueve al nuevo nodo

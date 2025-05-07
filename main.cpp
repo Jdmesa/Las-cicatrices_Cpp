@@ -33,14 +33,9 @@ int main() {
         return 1;
     }
 
-
-    numeroAleatorio = rand() % 21; // 0 a 20
-    cantidadCiclos = numeroAleatorio + 10; // 10 a 30
-
     cout << "Tamaño del mapa generado: " << tamanioMapa << "x" << tamanioMapa << endl;
-    cout << "Cantidad de ciclos generada: " << cantidadCiclos << endl;
 
-    ecosistema valle(tamanioMapa, tamanioMapa, bioma, cantidadCiclos);
+    ecosistema valle(tamanioMapa, tamanioMapa, bioma, 0);
 
     return 0;
 }

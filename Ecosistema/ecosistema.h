@@ -9,7 +9,7 @@
 class ecosistema {
 private:
   mapa m;
-  int ciclos;
+  int cicloActual;
   public:
   ecosistema(int f, int c, char b, int ciclos);
   int getCiclos() const;

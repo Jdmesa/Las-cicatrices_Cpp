@@ -4,6 +4,9 @@
 
 #include "fantasma.h"
 
+fantasma::fantasma(bool inv) : invisible(inv){
+}
+
 bool fantasma::getInv() const {
     return invisible;
 }
