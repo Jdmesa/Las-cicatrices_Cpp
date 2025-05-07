@@ -9,6 +9,7 @@
 
 #include "../Criaturas/dragon.h"
 #include "../Criaturas/enano.h"
+#include "../Criaturas/gigante.h"
 #include "../Criaturas/hada.h"
 
 string generarNombreAleatorioCriatura(string tipo) {
@@ -40,7 +41,7 @@ vector<criatura*> generacionCriaturas(int cantidad, mapa& m, int f, int c) {
     for (int i = 0; i < cantidad; ++i) {
         uniform_int_distribution<> distribucion_fila(0, f - 1); // Filas en el rango de 0 a fila - 1
         uniform_int_distribution<> distribucion_columna(0, c - 1); // Columnas en el rango de 0 a columna - 1
-        uniform_int_distribution<> tipo_distribucion(0, 2);   // 3 tipos: 0 = dragón, 1 = hada, 2 = enano
+        uniform_int_distribution<> tipo_distribucion(0, 3);   // 3 tipos: 0 = dragón, 1 = hada, 2 = enano, 3 = gigante
 
         int fila_aleatoria = distribucion_fila(gen); // Seleccion de filas, columnas y el tipo de criatura a generar.
         int columna_aleatoria = distribucion_columna(gen);
@@ -48,7 +49,7 @@ vector<criatura*> generacionCriaturas(int cantidad, mapa& m, int f, int c) {
 
         string nombre_aleatorio;
 
-        criatura* nueva_criatura = nullptr;
+        criatura* nueva_criatura = nullptr; // Se inicializa un apuntador vacio para luego modificar segun lo necesario
         switch (tipo) {
             case 0:
                 nombre_aleatorio = generarNombreAleatorioCriatura("Dragon");
@@ -61,6 +62,10 @@ vector<criatura*> generacionCriaturas(int cantidad, mapa& m, int f, int c) {
             case 2:
                 nombre_aleatorio = generarNombreAleatorioCriatura("Enano");
                 nueva_criatura = new enano(nombre_aleatorio, fila_aleatoria, columna_aleatoria);
+            break;
+            case 3:
+                nombre_aleatorio = generarNombreAleatorioCriatura("Gigante");
+                nueva_criatura = new gigante(nombre_aleatorio, fila_aleatoria, columna_aleatoria);
             break;
         }
         m.obtenerNodo(fila_aleatoria, columna_aleatoria).agregarCriatura(nueva_criatura);
