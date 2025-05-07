@@ -88,53 +88,52 @@ classDiagram
     class enano {
         -string nombre
         +enano(const string& nombre, int fila, int columna)
-        +void moverse(mapa &m) 
-        +void evolucion(mapa &m) 
-        +void morir() 
-        +void recibirAtaque(int danio) 
-        +string getNombre() 
-        +void pelear(criatura &otra) 
+        +void moverse(mapa &m): override 
+        +void evolucion(mapa &m): override 
+        +void morir(): override 
+        +void recibirAtaque(int danio): override 
+        +string getNombre(): override 
+        +void pelear(criatura &otra): override
     }
 
     class gigante {
         -string nombre
-        +gigante(const string& nombre, int fila, int columna);
-        +void morir() override;
-        +void moverse(mapa &m) override;
-        +void evolucion(mapa &m) override;
-        +void pelear(criatura *otra) override;
-        +void recibirAtaque(int danio) override;
-        +string getNombre() const override;
+        +gigante(const string& nombre, int fila, int columna)
+        +void morir(): override
+        +void moverse(mapa &m): override
+        +void evolucion(mapa &m): override
+        +void pelear(criatura *otra): override
+        +void recibirAtaque(int danio): override
+        +string getNombre(): override
     }
 
     class dragon {
         -string nombre
         +dragon(const string& nombre, int& fila, int& columna)
         +~dragon()
-        +void moverse(mapa &m)
-        +void evolucion(mapa &m)
-        +void morir() 
-        +void pelear(criatura &otra) 
-        +void recibirAtaque(int danio)
-        +string getNombre()
-        +int getFila() 
-        +int getColumna() 
-        +bool getVive()
+        +void moverse(mapa &m): override
+        +void evolucion(mapa &m): override
+        +void morir(): override
+        +void pelear(criatura &otra): override
+        +void recibirAtaque(int danio): override
+        +string getNombre(): override
+      
     }
 
-    class Hada {
+    class hada {
         -string nombre
         +hada(const string& nombre, int fila, int columna);
-        +void morir() 
-        +void moverse(mapa &m) 
-        +void evolucion(mapa &m)
-        +void pelear(criatura &otra)
-        +void recibirAtaque(int danio) 
-        +string getNombre() 
+        +void morir() :override
+        +void moverse(mapa &m):override 
+        +void evolucion(mapa &m):override
+        +void pelear(criatura &otra):override
+        +void recibirAtaque(int danio):override
+        +string getNombre():override 
 
     }
     
 
+    %% HERENCIAS
     criatura <|-- dragon
     criatura <|-- gigante
     criatura <|-- enano
@@ -146,6 +145,18 @@ classDiagram
     regeneracion <|-- dragon
     regeneracion <|-- enano
     regeneracion <|-- hada
+    
+    %% ASOCIACIONES Y COMPOSICIONES
+    mapa o-- "1..*" nodo : contiene
+    nodo o-- "0..*" criatura : tiene
+    ecosistema --> mapa : "gestiona"
+    
+    %% RELACIONES CON MAPA
+    criatura --> mapa : "interactúa con"
+    dragon --> mapa : "interactúa con"
+    gigante --> mapa : "interactúa con"
+    enano --> mapa : "interactúa con"
+    hada --> mapa : "interactúa con"
 
 
 ```
